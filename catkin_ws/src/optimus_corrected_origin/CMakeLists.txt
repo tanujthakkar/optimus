@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8.3)
 
-project(optimus)
+project(optimus_corrected_origin)
 
 find_package(catkin REQUIRED)
 

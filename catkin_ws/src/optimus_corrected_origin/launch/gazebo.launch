@@ -1,5 +1,5 @@
 <launch>
-
+    
   <arg name="debug" default="false"/>
   <arg name="gui" default="true"/>
   <arg name="pause" default="true"/>
@@ -21,7 +21,7 @@
     name="spawn_model"
     pkg="gazebo_ros"
     type="spawn_model"
-    args="-file $(find optimus)/urdf/optimus.urdf -urdf -model optimus"
+    args="-file $(find optimus_corrected_origin)/urdf/optimus_corrected_origin.urdf -urdf -model optimus_corrected_origin"
     output="screen" />
   <node
     name="fake_joint_calibration"

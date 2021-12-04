@@ -3,22 +3,22 @@
      Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
 <robot
-  name="optimus">
+  name="optimus_corrected_origin">
   <link
     name="base_link">
     <inertial>
       <origin
-        xyz="0.000271978105834902 0 -0.1"
+        xyz="0.00027198 0 -0.1"
         rpy="0 0 0" />
       <mass
-        value="144.386284511659" />
+        value="144.39" />
       <inertia
-        ixx="0.989799028466643"
-        ixy="-4.87757583378611E-16"
-        ixz="-3.87772257867507E-16"
-        iyy="11.5644597125907"
-        iyz="1.32635411256314E-17"
-        izz="11.5261415106454" />
+        ixx="0.9898"
+        ixy="-4.8728E-16"
+        ixz="-3.8733E-16"
+        iyy="11.564"
+        iyz="1.3264E-17"
+        izz="11.526" />
     </inertial>
     <visual>
       <origin
@@ -26,12 +26,12 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://optimus/meshes/base_link.STL" />
+          filename="package://optimus_corrected_origin/meshes/base_link.STL" />
       </geometry>
       <material
         name="">
         <color
-          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+          rgba="0.79216 0.81961 0.93333 1" />
       </material>
     </visual>
     <collision>
@@ -40,7 +40,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://optimus/meshes/base_link.STL" />
+          filename="package://optimus_corrected_origin/meshes/base_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -48,17 +48,17 @@
     name="F_bogie_link">
     <inertial>
       <origin
-        xyz="-0.0244164389508556 -0.0099999999999999 0.3"
+        xyz="-0.024416 2.2204E-16 -0.1"
         rpy="0 0 0" />
       <mass
-        value="75.1415926535898" />
+        value="75.142" />
       <inertia
-        ixx="3.32158725212812"
-        ixy="1.02631013084923E-16"
-        ixz="-2.70201448931577E-16"
-        iyy="5.32245435921457"
-        iyz="-4.98335187950695E-16"
-        izz="2.49354029185103" />
+        ixx="3.3216"
+        ixy="-2.8318E-16"
+        ixz="-1.0263E-16"
+        iyy="2.4935"
+        iyz="-3.1203E-18"
+        izz="5.3225" />
     </inertial>
     <visual>
       <origin
@@ -66,12 +66,12 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://optimus/meshes/F_bogie_link.STL" />
+          filename="package://optimus_corrected_origin/meshes/F_bogie_link.STL" />
       </geometry>
       <material
         name="">
         <color
-          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+          rgba="0.79216 0.81961 0.93333 1" />
       </material>
     </visual>
     <collision>
@@ -80,7 +80,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://optimus/meshes/F_bogie_link.STL" />
+          filename="package://optimus_corrected_origin/meshes/F_bogie_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -88,8 +88,8 @@
     name="F_bogie_joint"
     type="fixed">
     <origin
-      xyz="1.1 -0.3 -0.11"
-      rpy="-1.5708 0 0" />
+      xyz="1.1 0 0"
+      rpy="0 0 0" />
     <parent
       link="base_link" />
     <child
@@ -101,17 +101,17 @@
     name="FR_outer_wheel_connector_link">
     <inertial>
       <origin
-        xyz="3.44169137633799E-15 -0.0100000000000029 0.206818181818182"
+        xyz="-1.85268467234323E-15 0.206818181818182 4.10782519111308E-15"
         rpy="0 0 0" />
       <mass
         value="2.07345115136926" />
       <inertia
         ixx="0.0307163509718099"
-        ixy="0"
-        ixz="-3.74779761372748E-17"
-        iyy="0.0307163509718099"
-        iyz="2.33586732760321E-17"
-        izz="0.00162106180925233" />
+        ixy="1.36572961430801E-17"
+        ixz="3.68922553198698E-20"
+        iyy="0.00162106180925233"
+        iyz="-4.74701603502452E-17"
+        izz="0.0307163509718099" />
     </inertial>
     <visual>
       <origin
@@ -119,7 +119,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://optimus/meshes/FR_outer_wheel_connector_link.STL" />
+          filename="package://optimus_corrected_origin/meshes/FR_outer_wheel_connector_link.STL" />
       </geometry>
       <material
         name="">
@@ -133,38 +133,38 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://optimus/meshes/FR_outer_wheel_connector_link.STL" />
+          filename="package://optimus_corrected_origin/meshes/FR_outer_wheel_connector_link.STL" />
       </geometry>
     </collision>
   </link>
   <joint
     name="FR_outer_wheel_connector_joint"
-    type="continuous">
+    type="fixed">
     <origin
-      xyz="0.20965 -0.0073618 0.6"
-      rpy="0 0 -1.3038" />
+      xyz="0.2 0.3 -0.1"
+      rpy="0 0 0" />
     <parent
       link="F_bogie_link" />
     <child
       link="FR_outer_wheel_connector_link" />
     <axis
-      xyz="0 0 1" />
+      xyz="0 0 0" />
   </joint>
   <link
     name="FR_outer_wheel_link">
     <inertial>
       <origin
-        xyz="0.201565805423125 -0.0100023934139372 2.39491226172728E-06"
+        xyz="7.94662217230846E-07 0.201565805423125 -3.29128348464103E-06"
         rpy="0 0 0" />
       <mass
-        value="39.6885330149724" />
+        value="39.6885330149725" />
       <inertia
-        ixx="4.63080044138696"
-        ixy="5.39282947464307E-06"
-        ixz="-5.40463680083044E-06"
-        iyy="2.95668276005804"
-        iyz="-9.4956660373624E-06"
-        izz="2.95668280949652" />
+        ixx="2.95667434379043"
+        ixy="-1.79772249602782E-06"
+        ixz="-4.34948566726761E-06"
+        iyy="4.63080044138697"
+        iyz="7.42030339833979E-06"
+        izz="2.95669122576413" />
     </inertial>
     <visual>
       <origin
@@ -172,7 +172,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://optimus/meshes/FR_outer_wheel_link.STL" />
+          filename="package://optimus_corrected_origin/meshes/FR_outer_wheel_link.STL" />
       </geometry>
       <material
         name="">
@@ -186,7 +186,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://optimus/meshes/FR_outer_wheel_link.STL" />
+          filename="package://optimus_corrected_origin/meshes/FR_outer_wheel_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -194,30 +194,30 @@
     name="FR_outer_wheel_joint"
     type="continuous">
     <origin
-      xyz="0.0096055 -0.007219 0.32674"
-      rpy="1.8526 -1.5708 0" />
+      xyz="0 0.32674 0"
+      rpy="0 0 0" />
     <parent
       link="FR_outer_wheel_connector_link" />
     <child
       link="FR_outer_wheel_link" />
     <axis
-      xyz="1 0 0" />
+      xyz="0 1 0" />
   </joint>
   <link
     name="FL_outer_wheel_connector_link">
     <inertial>
       <origin
-        xyz="3.33066907387547E-15 -0.00999999999999179 0.206818181818182"
+        xyz="-5.37070388162419E-15 -0.206818181818182 6.77236045021345E-15"
         rpy="0 0 0" />
       <mass
         value="2.07345115136926" />
       <inertia
         ixx="0.0307163509718099"
-        ixy="0"
-        ixz="-2.7143033242461E-17"
-        iyy="0.0307163509718099"
-        iyz="-6.90946420908298E-18"
-        izz="0.00162106180925233" />
+        ixy="8.97759060052446E-18"
+        ixz="-1.25952034604741E-19"
+        iyy="0.00162106180925233"
+        iyz="2.16951266466499E-17"
+        izz="0.0307163509718099" />
     </inertial>
     <visual>
       <origin
@@ -225,7 +225,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://optimus/meshes/FL_outer_wheel_connector_link.STL" />
+          filename="package://optimus_corrected_origin/meshes/FL_outer_wheel_connector_link.STL" />
       </geometry>
       <material
         name="">
@@ -239,38 +239,38 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://optimus/meshes/FL_outer_wheel_connector_link.STL" />
+          filename="package://optimus_corrected_origin/meshes/FL_outer_wheel_connector_link.STL" />
       </geometry>
     </collision>
   </link>
   <joint
     name="FL_outer_wheel_connector_joint"
-    type="continuous">
+    type="fixed">
     <origin
-      xyz="0.191410490599822 -0.0151205788993285 0"
-      rpy="3.14159265358979 0 -1.03321742493139" />
+      xyz="0.2 -0.3 -0.1"
+      rpy="0 0 0" />
     <parent
       link="F_bogie_link" />
     <child
       link="FL_outer_wheel_connector_link" />
     <axis
-      xyz="0 0 1" />
+      xyz="0 0 0" />
   </joint>
   <link
     name="FL_outer_wheel__link">
     <inertial>
       <origin
-        xyz="0.201565805423117 -0.0100023934139338 2.39491227418953E-06"
+        xyz="-2.92249659344934E-06 -0.201565805423117 -1.70969258106446E-06"
         rpy="0 0 0" />
       <mass
         value="39.6885330149755" />
       <inertia
-        ixx="4.63080044138726"
-        ixy="5.3928294736072E-06"
-        ixz="-5.40463679748317E-06"
-        iyy="2.9566827600579"
-        iyz="-9.49566611141428E-06"
-        izz="2.95668280949706" />
+        ixx="2.95668745449248"
+        ixy="-6.59311314635011E-06"
+        ixz="8.26813447856092E-06"
+        iyy="4.63080044138726"
+        iyz="-3.85013865752919E-06"
+        izz="2.95667811506248" />
     </inertial>
     <visual>
       <origin
@@ -278,7 +278,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://optimus/meshes/FL_outer_wheel__link.STL" />
+          filename="package://optimus_corrected_origin/meshes/FL_outer_wheel__link.STL" />
       </geometry>
       <material
         name="">
@@ -292,7 +292,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://optimus/meshes/FL_outer_wheel__link.STL" />
+          filename="package://optimus_corrected_origin/meshes/FL_outer_wheel__link.STL" />
       </geometry>
     </collision>
   </link>
@@ -300,30 +300,30 @@
     name="FL_outer_wheel_joint"
     type="continuous">
     <origin
-      xyz="0.0096055118553634 -0.00721896745857198 0.326743890579708"
-      rpy="1.85261522674577 -1.5707963267949 0" />
+      xyz="0 -0.32674 0"
+      rpy="0 0 0" />
     <parent
       link="FL_outer_wheel_connector_link" />
     <child
       link="FL_outer_wheel__link" />
     <axis
-      xyz="1 0 0" />
+      xyz="0 -1 0" />
   </joint>
   <link
     name="R_bogie_link">
     <inertial>
       <origin
-        xyz="-0.0244164389508561 -0.0100000000000001 -0.3"
+        xyz="0.0244164389508561 1.11022302462516E-16 -0.0999999999999998"
         rpy="0 0 0" />
       <mass
         value="75.1415926535897" />
       <inertia
         ixx="3.32158725212812"
-        ixy="4.94453915429635E-17"
-        ixz="9.65658784720791E-17"
-        iyy="5.32245435921456"
-        iyz="8.52304382823977E-17"
-        izz="2.49354029185103" />
+        ixy="1.04663201039582E-16"
+        ixz="-6.0439083476423E-17"
+        iyy="2.49354029185103"
+        iyz="1.38285501712138E-16"
+        izz="5.32245435921456" />
     </inertial>
     <visual>
       <origin
@@ -331,7 +331,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://optimus/meshes/R_bogie_link.STL" />
+          filename="package://optimus_corrected_origin/meshes/R_bogie_link.STL" />
       </geometry>
       <material
         name="">
@@ -345,7 +345,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://optimus/meshes/R_bogie_link.STL" />
+          filename="package://optimus_corrected_origin/meshes/R_bogie_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -353,8 +353,8 @@
     name="R_bogie_joint"
     type="fixed">
     <origin
-      xyz="-1.1 -0.3 -0.109999999999998"
-      rpy="-1.5707963267949 0 -3.14159265358979" />
+      xyz="-1.1 0 0"
+      rpy="0 0 0" />
     <parent
       link="base_link" />
     <child
@@ -366,17 +366,17 @@
     name="RL_outer_wheel_connector_link">
     <inertial>
       <origin
-        xyz="5.55111512312578E-17 -0.0100000000000002 0.206818181818182"
+        xyz="-4.44089209850063E-16 0.206818181818182 2.22044604925031E-16"
         rpy="0 0 0" />
       <mass
         value="2.07345115136926" />
       <inertia
         ixx="0.0307163509718099"
-        ixy="-2.16840434497101E-18"
-        ixz="-2.59961384249049E-17"
-        iyy="0.0307163509718099"
-        iyz="-1.02299443094433E-17"
-        izz="0.00162106180925233" />
+        ixy="-1.54925599286273E-17"
+        ixz="7.77880648044805E-20"
+        iyy="0.00162106180925233"
+        iyz="-2.30745184784673E-17"
+        izz="0.0307163509718099" />
     </inertial>
     <visual>
       <origin
@@ -384,7 +384,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://optimus/meshes/RL_outer_wheel_connector_link.STL" />
+          filename="package://optimus_corrected_origin/meshes/RL_outer_wheel_connector_link.STL" />
       </geometry>
       <material
         name="">
@@ -398,38 +398,38 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://optimus/meshes/RL_outer_wheel_connector_link.STL" />
+          filename="package://optimus_corrected_origin/meshes/RL_outer_wheel_connector_link.STL" />
       </geometry>
     </collision>
   </link>
   <joint
     name="RL_outer_wheel_connector_joint"
-    type="continuous">
+    type="fixed">
     <origin
-      xyz="0.19018 -0.0081271 -0.6"
-      rpy="3.1416 0 -1.7592" />
+      xyz="-0.2 0.3 -0.1"
+      rpy="0 0 0" />
     <parent
       link="R_bogie_link" />
     <child
       link="RL_outer_wheel_connector_link" />
     <axis
-      xyz="0 0 1" />
+      xyz="0 0 0" />
   </joint>
   <link
     name="RL_outer_wheel_link">
     <inertial>
       <origin
-        xyz="0.201565805282954 -0.0100023934677481 2.39471855234541E-06"
+        xyz="1.05037916053874E-06 0.201565805282954 -3.21870601693863E-06"
         rpy="0 0 0" />
       <mass
         value="39.6885328227854" />
       <inertia
-        ixx="4.63080044108311"
-        ixy="5.39285840693659E-06"
-        ixz="-5.40450103863805E-06"
-        iyy="2.95668275970754"
-        iyz="-9.49559166985026E-06"
-        izz="2.95668280940998" />
+        ixx="2.95667512850444"
+        ixy="-2.37453572280207E-06"
+        ixz="-5.61709097472745E-06"
+        iyy="4.63080044108311"
+        iyz="7.25624788537814E-06"
+        izz="2.95669044061308" />
     </inertial>
     <visual>
       <origin
@@ -437,7 +437,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://optimus/meshes/RL_outer_wheel_link.STL" />
+          filename="package://optimus_corrected_origin/meshes/RL_outer_wheel_link.STL" />
       </geometry>
       <material
         name="">
@@ -451,7 +451,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://optimus/meshes/RL_outer_wheel_link.STL" />
+          filename="package://optimus_corrected_origin/meshes/RL_outer_wheel_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -459,30 +459,30 @@
     name="RL_outer_wheel_joint"
     type="continuous">
     <origin
-      xyz="0.00960551185536335 -0.00721896745857231 0.326743890579709"
-      rpy="1.85261522674576 -1.5707963267949 0" />
+      xyz="0 0.32674 0"
+      rpy="0 0 0" />
     <parent
       link="RL_outer_wheel_connector_link" />
     <child
       link="RL_outer_wheel_link" />
     <axis
-      xyz="1 0 0" />
+      xyz="0 1 0" />
   </joint>
   <link
     name="RR_outer_wheel_connector_link">
     <inertial>
       <origin
-        xyz="5.55111512312578E-16 -0.0100000000000016 0.206818181818182"
+        xyz="1.33226762955019E-15 -0.206818181818182 -1.11022302462516E-16"
         rpy="0 0 0" />
       <mass
         value="2.07345115136926" />
       <inertia
         ixx="0.0307163509718099"
-        ixy="-3.46944695195361E-18"
-        ixz="-1.69209866544731E-17"
-        iyy="0.0307163509718099"
-        iyz="-9.04307851299227E-18"
-        izz="0.00162106180925233" />
+        ixy="3.02822472609956E-18"
+        ixz="1.04996792420079E-20"
+        iyy="0.00162106180925233"
+        iyz="1.93901600133467E-17"
+        izz="0.0307163509718099" />
     </inertial>
     <visual>
       <origin
@@ -490,7 +490,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://optimus/meshes/RR_outer_wheel_connector_link.STL" />
+          filename="package://optimus_corrected_origin/meshes/RR_outer_wheel_connector_link.STL" />
       </geometry>
       <material
         name="">
@@ -504,38 +504,38 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://optimus/meshes/RR_outer_wheel_connector_link.STL" />
+          filename="package://optimus_corrected_origin/meshes/RR_outer_wheel_connector_link.STL" />
       </geometry>
     </collision>
   </link>
   <joint
     name="RR_outer_wheel_connector_joint"
-    type="continuous">
+    type="fixed">
     <origin
-      xyz="0.20777741525486 -0.0162858421833096 0"
-      rpy="0 0 -2.25052782068816" />
+      xyz="-0.2 -0.3 -0.1"
+      rpy="0 0 0" />
     <parent
       link="R_bogie_link" />
     <child
       link="RR_outer_wheel_connector_link" />
     <axis
-      xyz="0 0 1" />
+      xyz="0 0 0" />
   </joint>
   <link
     name="RR_outer_wheel_link">
     <inertial>
       <origin
-        xyz="0.201565805423126 -0.0100023934139369 2.39491226272648E-06"
+        xyz="-3.13523784090108E-06 -0.201565805423125 -1.27840475139251E-06"
         rpy="0 0 0" />
       <mass
         value="39.6885330149728" />
       <inertia
-        ixx="4.630800441387"
-        ixy="5.39282946621851E-06"
-        ixz="-5.4046367922504E-06"
-        iyy="2.95668276005781"
-        iyz="-9.49566595764839E-06"
-        izz="2.95668280949678" />
+        ixx="2.95668958616865"
+        ixy="-7.07207631433677E-06"
+        ixz="6.62641370626784E-06"
+        iyy="4.630800441387"
+        iyz="-2.87722872087634E-06"
+        izz="2.95667598338593" />
     </inertial>
     <visual>
       <origin
@@ -543,7 +543,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://optimus/meshes/RR_outer_wheel_link.STL" />
+          filename="package://optimus_corrected_origin/meshes/RR_outer_wheel_link.STL" />
       </geometry>
       <material
         name="">
@@ -557,7 +557,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://optimus/meshes/RR_outer_wheel_link.STL" />
+          filename="package://optimus_corrected_origin/meshes/RR_outer_wheel_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -565,30 +565,30 @@
     name="RR_outer_wheel_joint"
     type="continuous">
     <origin
-      xyz="0.0096055118553634 -0.00721896745857276 0.326743890579708"
-      rpy="1.85261522674574 -1.5707963267949 0" />
+      xyz="0 -0.32674 0"
+      rpy="0 0 0" />
     <parent
       link="RR_outer_wheel_connector_link" />
     <child
       link="RR_outer_wheel_link" />
     <axis
-      xyz="1 0 0" />
+      xyz="0 -1 0" />
   </joint>
   <link
     name="FL_inner_wheel_connector_link">
     <inertial>
       <origin
-        xyz="0.000744286749609024 -0.0099999999999999 0.20508770745258"
+        xyz="0.20508770745258 0.000744286749609024 -1.11022302462516E-16"
         rpy="0 0 0" />
       <mass
         value="3.16570796326795" />
       <inertia
-        ixx="0.0524105342655653"
-        ixy="-5.19502573400971E-20"
-        ixz="0.000247607077286726"
-        iyy="0.0471742267451069"
-        iyz="1.26624173291116E-19"
-        izz="0.00666180087935192" />
+        ixx="0.00666180087935192"
+        ixy="0.000247607077286714"
+        ixz="1.6098074917693E-19"
+        iyy="0.0524105342655653"
+        iyz="6.75526439645087E-19"
+        izz="0.0471742267451069" />
     </inertial>
     <visual>
       <origin
@@ -596,7 +596,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://optimus/meshes/FL_inner_wheel_connector_link.STL" />
+          filename="package://optimus_corrected_origin/meshes/FL_inner_wheel_connector_link.STL" />
       </geometry>
       <material
         name="">
@@ -610,7 +610,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://optimus/meshes/FL_inner_wheel_connector_link.STL" />
+          filename="package://optimus_corrected_origin/meshes/FL_inner_wheel_connector_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -618,8 +618,8 @@
     name="FL_inner_wheel_connector_joint"
     type="fixed">
     <origin
-      xyz="0.15 0.265 -0.09"
-      rpy="1.5708 0 1.5708" />
+      xyz="0.15 0.265 -0.1"
+      rpy="0 0 0" />
     <parent
       link="base_link" />
     <child
@@ -631,17 +631,17 @@
     name="FL_inner_wheel_link">
     <inertial>
       <origin
-        xyz="0.122556778342617 -0.0100023693696599 2.37036620509556E-06"
+        xyz="-2.22300115826357E-06 -0.122556778342617 -2.50814959334988E-06"
         rpy="0 0 0" />
       <mass
         value="5.0050487689712" />
       <inertia
-        ixx="0.144720367774976"
-        ixy="1.68525920626379E-07"
-        ixz="-1.68894899705465E-07"
-        iyy="0.0924066661076408"
-        iyz="-2.96739585981757E-07"
-        izz="0.0924066676526247" />
+        ixx="0.0924066318833436"
+        ixy="-1.58412736937296E-07"
+        ixz="2.94669651268579E-07"
+        iyy="0.144720367774976"
+        iyz="-1.78414903657771E-07"
+        izz="0.092406701876922" />
     </inertial>
     <visual>
       <origin
@@ -649,7 +649,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://optimus/meshes/FL_inner_wheel_link.STL" />
+          filename="package://optimus_corrected_origin/meshes/FL_inner_wheel_link.STL" />
       </geometry>
       <material
         name="">
@@ -663,7 +663,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://optimus/meshes/FL_inner_wheel_link.STL" />
+          filename="package://optimus_corrected_origin/meshes/FL_inner_wheel_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -671,30 +671,30 @@
     name="FL_inner_wheel_joint"
     type="continuous">
     <origin
-      xyz="-0.0250000000000001 -1.82399954632428E-05 0.319396288800974"
-      rpy="-3.08118480125405 0 3.14159265358979" />
+      xyz="0.32 -0.025 0"
+      rpy="0 0 0" />
     <parent
       link="FL_inner_wheel_connector_link" />
     <child
       link="FL_inner_wheel_link" />
     <axis
-      xyz="1 0 0" />
+      xyz="0 -1 0" />
   </joint>
   <link
     name="FR_inner_wheel_connector_link">
     <inertial>
       <origin
-        xyz="0.000744286749609135 -0.0100000000000001 0.20508770745258"
+        xyz="0.20508770745258 -0.000744286749609135 1.11022302462516E-16"
         rpy="0 0 0" />
       <mass
         value="3.16570796326795" />
       <inertia
-        ixx="0.0524105342655651"
-        ixy="-1.50516199653622E-18"
-        ixz="0.000247607077286713"
-        iyy="0.0471742267451067"
-        iyz="1.12145782326891E-18"
-        izz="0.0066618008793519" />
+        ixx="0.0066618008793519"
+        ixy="-0.000247607077286714"
+        ixz="-1.17700602431743E-18"
+        iyy="0.0524105342655651"
+        iyz="-4.08407090334487E-19"
+        izz="0.0471742267451067" />
     </inertial>
     <visual>
       <origin
@@ -702,7 +702,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://optimus/meshes/FR_inner_wheel_connector_link.STL" />
+          filename="package://optimus_corrected_origin/meshes/FR_inner_wheel_connector_link.STL" />
       </geometry>
       <material
         name="">
@@ -716,7 +716,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://optimus/meshes/FR_inner_wheel_connector_link.STL" />
+          filename="package://optimus_corrected_origin/meshes/FR_inner_wheel_connector_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -724,8 +724,8 @@
     name="FR_inner_wheel_connector_joint"
     type="fixed">
     <origin
-      xyz="0.15 -0.265 -0.11"
-      rpy="-1.5708 0 -1.5708" />
+      xyz="0.15 -0.265 -0.1"
+      rpy="0 0 0" />
     <parent
       link="base_link" />
     <child
@@ -737,17 +737,17 @@
     name="FR_inner_wheel_link">
     <inertial>
       <origin
-        xyz="0.122556779088169 -0.0100023693696856 2.37036622763309E-06"
+        xyz="-3.31118514906859E-06 0.122556779088169 -5.18267951332696E-07"
         rpy="0 0 0" />
       <mass
-        value="5.00504892402195" />
+        value="5.00504892402194" />
       <inertia
-        ixx="0.144720367920832"
-        ixy="1.68525902114662E-07"
-        ixz="-1.68894881016367E-07"
-        iyy="0.0924066662947162"
-        iyz="-2.96738910120914E-07"
-        izz="0.0924066676638246" />
+        ixx="0.0924069493556727"
+        ixy="2.35690015618929E-07"
+        ixz="9.12031624363562E-08"
+        iyy="0.144720367920832"
+        iyz="3.71035989474246E-08"
+        izz="0.0924063846028681" />
     </inertial>
     <visual>
       <origin
@@ -755,7 +755,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://optimus/meshes/FR_inner_wheel_link.STL" />
+          filename="package://optimus_corrected_origin/meshes/FR_inner_wheel_link.STL" />
       </geometry>
       <material
         name="">
@@ -769,7 +769,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://optimus/meshes/FR_inner_wheel_link.STL" />
+          filename="package://optimus_corrected_origin/meshes/FR_inner_wheel_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -777,30 +777,30 @@
     name="FR_inner_wheel_joint"
     type="continuous">
     <origin
-      xyz="-0.0249999999999999 -0.00410574285570231 0.328078225839681"
-      rpy="2.2011440774755 0 3.14159265358979" />
+      xyz="0.32 0.025 0"
+      rpy="0 0 0" />
     <parent
       link="FR_inner_wheel_connector_link" />
     <child
       link="FR_inner_wheel_link" />
     <axis
-      xyz="1 0 0" />
+      xyz="0 1 0" />
   </joint>
   <link
     name="RL_inner_wheel_connector_link">
     <inertial>
       <origin
-        xyz="0.000744286749609135 -0.01 0.20508770745258"
+        xyz="-0.20508770745258 0.000744286749609246 0"
         rpy="0 0 0" />
       <mass
         value="3.16570796326795" />
       <inertia
-        ixx="0.0524105342655653"
-        ixy="1.33427384089145E-18"
-        ixz="0.000247607077286719"
-        iyy="0.0471742267451069"
-        iyz="-7.35807247029847E-18"
-        izz="0.00666180087935194" />
+        ixx="0.00666180087935194"
+        ixy="-0.000247607077286711"
+        ixz="-8.57886467619125E-18"
+        iyy="0.0524105342655653"
+        iyz="-2.27692614209372E-18"
+        izz="0.0471742267451069" />
     </inertial>
     <visual>
       <origin
@@ -808,7 +808,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://optimus/meshes/RL_inner_wheel_connector_link.STL" />
+          filename="package://optimus_corrected_origin/meshes/RL_inner_wheel_connector_link.STL" />
       </geometry>
       <material
         name="">
@@ -822,7 +822,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://optimus/meshes/RL_inner_wheel_connector_link.STL" />
+          filename="package://optimus_corrected_origin/meshes/RL_inner_wheel_connector_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -830,8 +830,8 @@
     name="RL_inner_wheel_connector_joint"
     type="fixed">
     <origin
-      xyz="-0.15 0.265 -0.11"
-      rpy="-1.5708 0 1.5708" />
+      xyz="-0.15 0.265 -0.1"
+      rpy="0 0 0" />
     <parent
       link="base_link" />
     <child
@@ -843,17 +843,17 @@
     name="RL_inner_wheel_link">
     <inertial>
       <origin
-        xyz="2.12477262695465E-06 -0.0100025918892352 0.122556778342622"
+        xyz="2.39870415552623E-06 -0.122556778342622 2.34067658932968E-06"
         rpy="0 0 0" />
       <mass
         value="5.00504876897168" />
       <inertia
-        ixx="0.0924066080403614"
-        ixy="-2.90848497870935E-07"
-        ixz="-1.51099176154113E-07"
-        iyy="0.0924067257199194"
-        iyz="1.84649701303916E-07"
-        izz="0.144720367774988" />
+        ixx="0.0924066747929623"
+        ixy="1.70910468737889E-07"
+        ixz="2.96635054499153E-07"
+        iyy="0.144720367774988"
+        iyz="1.66481485161672E-07"
+        izz="0.0924066589673187" />
     </inertial>
     <visual>
       <origin
@@ -861,7 +861,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://optimus/meshes/RL_inner_wheel_link.STL" />
+          filename="package://optimus_corrected_origin/meshes/RL_inner_wheel_link.STL" />
       </geometry>
       <material
         name="">
@@ -875,7 +875,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://optimus/meshes/RL_inner_wheel_link.STL" />
+          filename="package://optimus_corrected_origin/meshes/RL_inner_wheel_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -883,30 +883,30 @@
     name="RL_inner_wheel_joint"
     type="continuous">
     <origin
-      xyz="-0.0249999999999979 -0.00913637272663603 0.329962637599185"
-      rpy="1.5707963267949 -0.0864704456326401 -1.5707963267949" />
+      xyz="-0.32 -0.025 0"
+      rpy="0 0 0" />
     <parent
       link="RL_inner_wheel_connector_link" />
     <child
       link="RL_inner_wheel_link" />
     <axis
-      xyz="0 0 1" />
+      xyz="0 -1 0" />
   </joint>
   <link
     name="RR_inner_wheel_connector_link">
     <inertial>
       <origin
-        xyz="0.000744286749609135 -0.0099999999999999 0.20508770745258"
+        xyz="-0.20508770745258 -0.000744286749609135 1.11022302462516E-16"
         rpy="0 0 0" />
       <mass
         value="3.16570796326795" />
       <inertia
-        ixx="0.0524105342655651"
-        ixy="2.72786161475962E-19"
-        ixz="0.000247607077286714"
-        iyy="0.0471742267451067"
-        iyz="-3.34027850475248E-18"
-        izz="0.00666180087935192" />
+        ixx="0.00666180087935192"
+        ixy="0.000247607077286714"
+        ixz="3.34428024835884E-18"
+        iyy="0.0524105342655651"
+        iyz="-2.59900485902853E-19"
+        izz="0.0471742267451067" />
     </inertial>
     <visual>
       <origin
@@ -914,7 +914,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://optimus/meshes/RR_inner_wheel_connector_link.STL" />
+          filename="package://optimus_corrected_origin/meshes/RR_inner_wheel_connector_link.STL" />
       </geometry>
       <material
         name="">
@@ -928,7 +928,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://optimus/meshes/RR_inner_wheel_connector_link.STL" />
+          filename="package://optimus_corrected_origin/meshes/RR_inner_wheel_connector_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -936,8 +936,8 @@
     name="RR_inner_wheel_connector_joint"
     type="fixed">
     <origin
-      xyz="-0.149999999999999 -0.265 -0.0899999999999999"
-      rpy="1.5707963267949 0 -1.5707963267949" />
+      xyz="-0.15 -0.265 -0.1"
+      rpy="0 0 0" />
     <parent
       link="base_link" />
     <child
@@ -949,17 +949,17 @@
     name="RR_inner_wheel_link">
     <inertial>
       <origin
-        xyz="2.12477264593947E-06 -0.010002591889261 0.122556779088174"
+        xyz="1.24620017638577E-07 0.122556779088174 -3.34918177913313E-06"
         rpy="0 0 0" />
       <mass
         value="5.00504892402154" />
       <inertia
-        ixx="0.0924066082258415"
-        ixy="-2.90865069269702E-07"
-        ixz="-1.510991588339E-07"
-        iyy="0.0924067257326864"
-        iyz="1.84649680710837E-07"
-        izz="0.144720367920822" />
+        ixx="0.0924063711022311"
+        ixy="-9.08227080992973E-09"
+        ixz="-2.26104982609489E-08"
+        iyy="0.144720367920822"
+        iyz="2.38419740676118E-07"
+        izz="0.0924069628562967" />
     </inertial>
     <visual>
       <origin
@@ -967,7 +967,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://optimus/meshes/RR_inner_wheel_link.STL" />
+          filename="package://optimus_corrected_origin/meshes/RR_inner_wheel_link.STL" />
       </geometry>
       <material
         name="">
@@ -981,7 +981,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://optimus/meshes/RR_inner_wheel_link.STL" />
+          filename="package://optimus_corrected_origin/meshes/RR_inner_wheel_link.STL" />
       </geometry>
     </collision>
   </link>
@@ -989,13 +989,13 @@
     name="RR_inner_wheel_joint"
     type="continuous">
     <origin
-      xyz="-0.0249999999999991 -0.00250756059284885 0.326622941320151"
-      rpy="1.5707963267949 -0.846919764335258 -1.5707963267949" />
+      xyz="-0.32 0.025 0"
+      rpy="0 0 0" />
     <parent
       link="RR_inner_wheel_connector_link" />
     <child
       link="RR_inner_wheel_link" />
     <axis
-      xyz="0 0 1" />
+      xyz="0 1 0" />
   </joint>
 </robot>

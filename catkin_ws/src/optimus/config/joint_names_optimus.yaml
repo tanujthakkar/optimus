@@ -1,1 +1,1 @@
-controller_joint_names: ['', 'FR_wheel_connector_joint', 'FR_wheel_joint', 'FL_wheel_connector_joint', 'FL_wheel_joint', 'RR_wheel_joint', 'RL_wheel_joint', ]
+controller_joint_names: ['', 'FR_outer_wheel_connector_joint', 'FR_outer_wheel_joint', 'FL_outer_wheel_connector_joint', 'FL_outer_wheel_joint', 'RL_outer_wheel_connector_joint', 'RL_outer_wheel_joint', 'RR_outer_wheel_connector_joint', 'RR_outer_wheel_joint', 'FL_inner_wheel_joint', 'FR_inner_wheel_joint', 'RL_inner_wheel_joint', 'RR_inner_wheel_joint', ]
