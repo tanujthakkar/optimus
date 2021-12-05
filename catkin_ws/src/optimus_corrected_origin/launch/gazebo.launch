@@ -2,7 +2,7 @@
     
   <arg name="debug" default="false"/>
   <arg name="gui" default="true"/>
-  <arg name="pause" default="true"/>
+  <arg name="paused" default="true"/>
   <!-- <arg name="world" value="$(find hybrid_astar)/world/hospital_04.world"/> -->
 
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
@@ -17,6 +17,7 @@
     pkg="tf"
     type="static_transform_publisher"
     args="0 0 0 0 0 0 base_link base_footprint 40" />
+    
   <node
     name="spawn_model"
     pkg="gazebo_ros"

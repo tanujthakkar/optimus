@@ -1,0 +1,24 @@
+
+optimus_joint_state_controller:
+  type: "joint_state_controller/JointStateController"
+  publish_rate: 50
+
+optimus_FR_outer_wheel_controller:
+    type: velocity_controllers/JointVelocityController
+    joint: 'FR_outer_wheel_joint'
+    pid: {p: 1.0, i: 1.0, d: 1.0}
+
+optimus_FL_outer_wheel_controller:
+    type: velocity_controllers/JointVelocityController
+    joint: 'FL_outer_wheel_joint'
+    pid: {p: 1.0, i: 1.0, d: 1.0}
+
+optimus_RR_outer_wheel_controller:
+    type: velocity_controllers/JointVelocityController
+    joint: 'RR_outer_wheel_joint'
+    pid: {p: 1.0, i: 1.0, d: 1.0}
+
+optimus_RL_outer_wheel_controller:
+    type: velocity_controllers/JointVelocityController
+    joint: 'RL_outer_wheel_joint'
+    pid: {p: 1.0, i: 1.0, d: 1.0}

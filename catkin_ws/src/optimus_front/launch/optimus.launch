@@ -1,0 +1,55 @@
+<!-- Every launch file starts with this command -->
+<launch>
+
+    <arg name="gui" default="true"/>
+    <arg name="pause" default="true"/>
+
+    <!-- Launching Gazebo -->
+	<include file= "$(find gazebo_ros)/launch/empty_world.launch">
+    </include>
+		
+    <!-- Defining robot_descritpion -->
+	<param name= "robot_description" command="$(find xacro)/xacro $(find optimus_front)/urdf/optimus_front.urdf --inorder "/>
+    <!-- Add in your robot name in the value tag -->
+    <param name = "my_robot" value="optimus_front"/> 
+	<arg name ="init_pose" value="-x 0 -y 0 -z 0.0 -R 0 -P 0 -Y 0"/>
+    
+    <!-- Reading control config file -->
+	<!-- <rosparam file="$(find optimus_front)/config/control.yaml" command="load"/> -->
+
+	<!-- Joint State Publisher Node -->
+	<!-- <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" /> -->
+
+    <!-- Joint State Publisher Node with GUI -->
+    <node name="joint_state_publisher" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" />
+
+    <!-- TF node that gives the static transformation between the world map and the base link of your robot. Change /base_link to the /root link name of your robot -->
+    <!-- <node pkg="tf" type="static_transform_publisher" name="map_to_base" args="1 0 0 0 0 0 1 /map /base_link 10" /> -->
+
+    <!-- Controller spawner   -->
+    <!-- <node name="controller_spwaner" pkg="controller_manager" type="spawner" respawn="false"
+    	output="screen" ns="/" args="optimus_joint_state_controller optimus_FR_outer_wheel_controller optimus_FL_outer_wheel_controller optimus_RR_outer_wheel_controller optimus_RL_outer_wheel_controller" /> -->
+
+    <!-- Robot State Publisher Node -->
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen"/>
+
+    <!-- Spawning the model to Gazebo-->
+   	<node
+		name="spawn_model"
+		pkg="gazebo_ros"
+		type="spawn_model"
+		args="$(arg init_pose) -param robot_description -urdf -model my_robot"
+		output="screen"/>
+
+	<!--Default node -->
+	<node
+    name="fake_joint_calibration"
+    pkg="rostopic"
+    type="rostopic"
+    args="pub /calibrated std_msgs/Bool true" />
+
+    <!-- Rviz Node -->
+    <arg name="config" default="visualize" />
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find optimus_front)/rviz/$(arg config).rviz"/>
+
+</launch>
