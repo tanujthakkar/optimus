@@ -4,18 +4,16 @@
 
   <param name="robot_description" command="$(find xacro)/xacro --inorder $(find optimus)/urdf/optimus.urdf.xacro" />
   <param name = "robot" value="optimus"/>
-  <arg name ="init_pose" value="-x 0.0 -y 0 -z 0.44 -R 0 -P 0 -Y 0"/>
+  <arg name ="init_pose" value="-x 0.0 -y 0 -z 0.45 -R 0 -P 0 -Y 0"/>
 
   <!-- Reading control config file -->
-  <rosparam file="$(find optimus_front)/config/control.yaml" command="load"/>
+  <!-- <rosparam file="$(find optimus)/config/control.yaml" command="load"/> -->
 
-  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
-  <!-- <node name="joint_state_publisher" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" /> -->
+  <!-- <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" /> -->
+  <node name="joint_state_publisher" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" />
 
   <!-- Controller spawner   -->
-  <node name="controller_spwaner" pkg="controller_manager" type="spawner" respawn="false"
-    output="screen" ns="/" args="optimus_joint_state_controller optimus_FR_outer_wheel_controller optimus_FL_outer_wheel_controller optimus_FR_inner_wheel_controller optimus_FL_inner_wheel_controller
-    optimus_FR_outer_wheel_connector_controller optimus_FL_outer_wheel_connector_controller optimus_FR_inner_wheel_connector_controller optimus_FL_inner_wheel_connector_controller" />
+  <!-- <node name="controller_spwaner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="/" args="optimus_joint_state_controller optimus_FR_outer_wheel_controller optimus_FL_outer_wheel_controller optimus_FR_inner_wheel_controller optimus_FL_inner_wheel_controller optimus_FR_outer_wheel_connector_controller optimus_FL_outer_wheel_connector_controller optimus_FR_inner_wheel_connector_controller optimus_FL_inner_wheel_connector_controller optimus_RR_outer_wheel_controller optimus_RL_outer_wheel_controller optimus_RR_inner_wheel_controller optimus_RL_inner_wheel_controller optimus_RR_outer_wheel_connector_controller optimus_RL_outer_wheel_connector_controller optimus_RR_inner_wheel_connector_controller optimus_RL_inner_wheel_connector_controller" /> -->
 
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen"/>
 

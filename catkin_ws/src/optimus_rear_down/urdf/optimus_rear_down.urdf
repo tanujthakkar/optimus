@@ -4,8 +4,9 @@
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
 <robot
   name="optimus_rear_down">
+  
   <link
-    name="base_link">
+    name="optimus_rear_down">
     <inertial>
       <origin
         xyz="-0.0327449438113643 -8.17379237077329E-06 0.3"
@@ -26,7 +27,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://optimus_rear_down/meshes/base_link.STL" />
+          filename="package://optimus_rear_down/meshes/optimus_rear_down.STL" />
       </geometry>
       <material
         name="">
@@ -40,10 +41,11 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://optimus_rear_down/meshes/base_link.STL" />
+          filename="package://optimus_rear_down/meshes/optimus_rear_down.STL" />
       </geometry>
     </collision>
   </link>
+  
   <link
     name="RR_outer_wheel_connector_link">
     <inertial>
@@ -84,6 +86,7 @@
       </geometry>
     </collision>
   </link>
+  
   <joint
     name="RR_outer_wheel_connector_joint"
     type="revolute">
@@ -91,7 +94,7 @@
       xyz="-0.4 -0.3 0"
       rpy="0 0 0" />
     <parent
-      link="base_link" />
+      link="optimus_rear_down" />
     <child
       link="RR_outer_wheel_connector_link" />
     <axis
@@ -99,8 +102,8 @@
     <limit
       lower="0"
       upper="1.57"
-      effort="10"
-      velocity="10" />
+      effort="100"
+      velocity="100" />
   </joint>
 
   <transmission name="RR_outer_wheel_connector_trans">
@@ -113,7 +116,7 @@
       <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
     </actuator>
   </transmission>
-
+  
   <link
     name="RR_outer_wheel_link">
     <inertial>
@@ -154,6 +157,7 @@
       </geometry>
     </collision>
   </link>
+  
   <joint
     name="RR_outer_wheel_joint"
     type="continuous">
@@ -165,11 +169,12 @@
     <child
       link="RR_outer_wheel_link" />
     <axis
-      xyz="0 -1 0" />
+      xyz="0 1 0" />
   </joint>
 
   <transmission name="RR_outer_wheel_trans">
     <type>transmission_interface/SimpleTransmission</type>
+    
     <joint name="RR_outer_wheel_joint">
       <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
     </joint>
@@ -219,6 +224,7 @@
       </geometry>
     </collision>
   </link>
+  
   <joint
     name="RL_outer_wheel_connector_joint"
     type="revolute">
@@ -226,17 +232,29 @@
       xyz="-0.4 0.3 0"
       rpy="0 0 0" />
     <parent
-      link="base_link" />
+      link="optimus_rear_down" />
     <child
       link="RL_outer_wheel_connector_link" />
     <axis
       xyz="0 -1 0" />
     <limit
       lower="0"
-      upper="0"
-      effort="0"
-      velocity="0" />
+      upper="1.57"
+      effort="100"
+      velocity="100" />
   </joint>
+
+  <transmission name="RL_outer_wheel_connector_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RL_outer_wheel_connector_joint">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="RL_outer_wheel_connector_actuator">
+      <mechanicalReduction>1</mechanicalReduction>
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </actuator>
+  </transmission>
+  
   <link
     name="RL_outer_wheel_link">
     <inertial>
@@ -277,6 +295,7 @@
       </geometry>
     </collision>
   </link>
+  
   <joint
     name="RL_outer_wheel_joint"
     type="continuous">
@@ -290,6 +309,19 @@
     <axis
       xyz="0 1 0" />
   </joint>
+
+  <transmission name="RL_outer_wheel_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    
+    <joint name="RL_outer_wheel_joint">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="RL_outer_wheel_actuator">
+      <mechanicalReduction>10</mechanicalReduction>
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </actuator>
+  </transmission>
+  
   <link
     name="RR_inner_wheel_connector_link">
     <inertial>
@@ -330,6 +362,7 @@
       </geometry>
     </collision>
   </link>
+  
   <joint
     name="RR_inner_wheel_connector_joint"
     type="revolute">
@@ -337,17 +370,29 @@
       xyz="0.25 -0.3 0"
       rpy="0 0 0" />
     <parent
-      link="base_link" />
+      link="optimus_rear_down" />
     <child
       link="RR_inner_wheel_connector_link" />
     <axis
       xyz="0 1 0" />
     <limit
       lower="0"
-      upper="0"
-      effort="0"
-      velocity="0" />
+      upper="1.57"
+      effort="100"
+      velocity="100" />
   </joint>
+
+  <transmission name="RR_inner_wheel_connector_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RR_inner_wheel_connector_joint">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="RR_inner_wheel_connector_actuator">
+      <mechanicalReduction>1</mechanicalReduction>
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </actuator>
+  </transmission>
+  
   <link
     name="RR_inner_wheel_link">
     <inertial>
@@ -388,6 +433,7 @@
       </geometry>
     </collision>
   </link>
+  
   <joint
     name="RR_inner_wheel_joint"
     type="continuous">
@@ -399,8 +445,20 @@
     <child
       link="RR_inner_wheel_link" />
     <axis
-      xyz="0 -1 0" />
+      xyz="0 1 0" />
   </joint>
+
+  <transmission name="RR_inner_wheel_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RR_inner_wheel_joint">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="RR_inner_wheel_actuator">
+      <mechanicalReduction>10</mechanicalReduction>
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </actuator>
+  </transmission>
+  
   <link
     name="RL_inner_wheel_connector_link">
     <inertial>
@@ -441,6 +499,7 @@
       </geometry>
     </collision>
   </link>
+  
   <joint
     name="RL_inner_wheel_connector_joint"
     type="revolute">
@@ -448,17 +507,29 @@
       xyz="0.25 0.3 0"
       rpy="0 0 0" />
     <parent
-      link="base_link" />
+      link="optimus_rear_down" />
     <child
       link="RL_inner_wheel_connector_link" />
     <axis
-      xyz="0 -1 0" />
+      xyz="0 1 0" />
     <limit
       lower="0"
-      upper="0"
-      effort="0"
-      velocity="0" />
+      upper="1.57"
+      effort="100"
+      velocity="100" />
   </joint>
+
+  <transmission name="RL_inner_wheel_connector_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RL_inner_wheel_connector_joint">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="RL_inner_wheel_connector_actuator">
+      <mechanicalReduction>1</mechanicalReduction>
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </actuator>
+  </transmission>
+  
   <link
     name="RL_inner_wheel_link">
     <inertial>
@@ -499,6 +570,7 @@
       </geometry>
     </collision>
   </link>
+  
   <joint
     name="RL_inner_wheel_joint"
     type="continuous">
@@ -513,11 +585,23 @@
       xyz="0 1 0" />
   </joint>
 
-  <gazebo>
+  <transmission name="RL_inner_wheel_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    
+    <joint name="RL_inner_wheel_joint">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="RL_inner_wheel_actuator">
+      <mechanicalReduction>10</mechanicalReduction>
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </actuator>
+  </transmission>
+
+  <!-- <gazebo>
     <plugin filename="libgazebo_ros_control.so" name="gazebo_ros_control">
       <robotNamespace>/</robotNamespace>
       <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
       <legacyModeNS>true</legacyModeNS>
     </plugin>
-  </gazebo>
+  </gazebo> -->
 </robot>

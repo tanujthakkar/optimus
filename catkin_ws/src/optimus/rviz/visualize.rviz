@@ -75,13 +75,31 @@ Visualization Manager:
           Value: true
         L_docker_shaft_link:
           Value: true
+        RL_inner_wheel_connector_link:
+          Value: true
+        RL_inner_wheel_link:
+          Value: true
+        RL_outer_wheel_connector_link:
+          Value: true
+        RL_outer_wheel_link:
+          Value: true
+        RR_inner_wheel_connector_link:
+          Value: true
+        RR_inner_wheel_link:
+          Value: true
+        RR_outer_wheel_connector_link:
+          Value: true
+        RR_outer_wheel_link:
+          Value: true
         R_docker_shaft_link:
           Value: true
         base_link:
           Value: true
         docker_link:
           Value: true
-        map:
+        optimus_front_down:
+          Value: true
+        optimus_rear_down:
           Value: true
       Marker Scale: 1
       Name: TF
@@ -89,8 +107,8 @@ Visualization Manager:
       Show Axes: true
       Show Names: true
       Tree:
-        map:
-          base_link:
+        base_link:
+          optimus_front_down:
             FL_inner_wheel_connector_link:
               FL_inner_wheel_link:
                 {}
@@ -107,6 +125,19 @@ Visualization Manager:
               L_docker_shaft_link:
                 {}
               R_docker_shaft_link:
+                {}
+          optimus_rear_down:
+            RL_inner_wheel_connector_link:
+              RL_inner_wheel_link:
+                {}
+            RL_outer_wheel_connector_link:
+              RL_outer_wheel_link:
+                {}
+            RR_inner_wheel_connector_link:
+              RR_inner_wheel_link:
+                {}
+            RR_outer_wheel_connector_link:
+              RR_outer_wheel_link:
                 {}
       Update Interval: 0
       Value: true
@@ -165,6 +196,46 @@ Visualization Manager:
           Show Trail: false
           Value: true
         Link Tree Style: Links in Alphabetic Order
+        RL_inner_wheel_connector_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        RL_inner_wheel_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        RL_outer_wheel_connector_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        RL_outer_wheel_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        RR_inner_wheel_connector_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        RR_inner_wheel_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        RR_outer_wheel_connector_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        RR_outer_wheel_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         R_docker_shaft_link:
           Alpha: 1
           Show Axes: false
@@ -174,8 +245,17 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-          Value: true
         docker_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        optimus_front_down:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        optimus_rear_down:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -190,7 +270,7 @@ Visualization Manager:
   Global Options:
     Background Color: 48; 48; 48
     Default Light: true
-    Fixed Frame: map
+    Fixed Frame: base_link
     Frame Rate: 30
   Name: root
   Tools:
@@ -221,18 +301,18 @@ Visualization Manager:
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: -0.0925249233841896
-        Y: 0.07897636294364929
-        Z: 0.21942205727100372
+        X: -0.018344184383749962
+        Y: -0.039015110582113266
+        Z: 0.1553410291671753
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.8503977060317993
+      Pitch: 0.8553977012634277
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 4.270406246185303
+      Yaw: 4.260406017303467
     Saved: ~
 Window Geometry:
   Displays:

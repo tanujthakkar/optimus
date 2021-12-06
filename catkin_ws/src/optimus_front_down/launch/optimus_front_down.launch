@@ -27,7 +27,7 @@
     <node pkg="tf" type="static_transform_publisher" name="map_to_base" args="0 0 0 0 0 0 1 /map /base_link 10" />
 
     <!-- Controller spawner: Starts all the defined controllers with their configs. Just add your controller names defined in your config file into the args tag below   -->
-    <node name="controller_spwaner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="/" args="optimus_joint_state_controller optimus_FR_outer_wheel_controller optimus_FR_outer_wheel_connector_controller" />
+    <node name="controller_spwaner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="/" args="optimus_joint_state_controller optimus_FR_outer_wheel_controller optimus_FR_outer_wheel_connector_controller optimus_FL_outer_wheel_controller optimus_FL_outer_wheel_connector_controller optimus_FR_inner_wheel_controller optimus_FR_inner_wheel_connector_controller optimus_FL_inner_wheel_controller optimus_FL_inner_wheel_connector_controller optimus_R_docker_shaft_controller optimus_L_docker_shaft_controller" />
 
     <!-- A node to publish the robot states onto ros network -->
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen"/>

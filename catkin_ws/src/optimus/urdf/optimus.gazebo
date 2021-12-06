@@ -9,13 +9,13 @@
       <legacyModeNS>true</legacyModeNS>
     </plugin>
 
-    <!-- <plugin name="p3d_base_controller" filename="libgazebo_ros_p3d.so">
+    <plugin name="p3d_base_controller" filename="libgazebo_ros_p3d.so">
       <updateRate>50.0</updateRate>
-      <bodyName>optimus_front</bodyName>
+      <bodyName>base_link</bodyName>
       <topicName>base_pose_ground_truth</topicName>
       <gaussianNoise>0.01</gaussianNoise>
       <frameName>map</frameName>
-    </plugin> -->
+    </plugin>
     
   </gazebo>
 

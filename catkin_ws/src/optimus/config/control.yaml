@@ -4,32 +4,38 @@ optimus_joint_state_controller:
   type: "joint_state_controller/JointStateController"
   publish_rate: 50
 
-optimus_FR_wheel_controller:
+# Front
+optimus_FR_outer_wheel_controller:
     type: velocity_controllers/JointVelocityController
-    joint: 'FR_wheel_joint'
+    joint: 'FR_outer_wheel_joint'
     pid: {p: 10.0, i: 0.0, d: 0.0}
 
-optimus_FL_wheel_controller:
+optimus_FL_outer_wheel_controller:
     type: velocity_controllers/JointVelocityController
-    joint: 'FL_wheel_joint'
+    joint: 'FL_outer_wheel_joint'
     pid: {p: 10.0, i: 0.0, d: 0.0}
 
-optimus_RR_wheel_controller:
+optimus_FR_inner_wheel_controller:
     type: velocity_controllers/JointVelocityController
-    joint: 'RR_wheel_joint'
-    pid: {p: 1.0, i: 0.0, d: 0.0}
+    joint: 'FR_inner_wheel_joint'
+    pid: {p: 10.0, i: 0.0, d: 0.0}
 
-optimus_RL_wheel_controller:
+optimus_FR_inner_wheel_controller:
     type: velocity_controllers/JointVelocityController
-    joint: 'RL_wheel_joint'
+    joint: 'FR_inner_wheel_joint'
+    pid: {p: 10.0, i: 0.0, d: 0.0}
+
+optimus_FL_inner_wheel_connector_controller:
+    type: position_controllers/JointPositionController
+    joint: 'FL_inner_wheel_connector_joint'
     pid: {p: 1.0, i: 0.0, d: 0.0}
 
-optimus_FR_wheel_connector_controller:
+optimus_R_docker_shaft_controller:
     type: position_controllers/JointPositionController
-    joint: 'FR_wheel_connector_joint'
+    joint: 'R_docker_shaft_joint'
     pid: {p: 1.0, i: 0.0, d: 0.0}
 
-optimus_FL_wheel_connector_controller:
+optimus_L_docker_shaft_controller:
     type: position_controllers/JointPositionController
-    joint: 'FL_wheel_connector_joint'
+    joint: 'L_docker_shaft_joint'
     pid: {p: 1.0, i: 0.0, d: 0.0}
