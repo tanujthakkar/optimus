@@ -8,9 +8,6 @@
 
   <!-- Importing Optimus Rear -->
   <xacro:include filename="$(find optimus_rear_down)/urdf/optimus_rear_down.urdf" />
- 
-  <!-- Bring in simulation data for Gazebo. -->
-  <!-- <xacro:include filename="$(find optimus_corrected_origin)/urdf/optimus_corrected_origin.gazebo" /> -->
 
   <link 
     name="base_link">
@@ -28,6 +25,7 @@
     <child link="optimus_rear_down" />
   </joint>
 
+  <!-- Bring in simulation data for Gazebo. -->
   <xacro:include filename="$(find optimus)/urdf/optimus.gazebo" />
 
 </robot>

@@ -703,7 +703,7 @@
       xyz="0 0 1" />
     <limit
       lower="-0.2"
-      upper="0"
+      upper="0.1"
       effort="10"
       velocity="10" />
   </joint>
@@ -774,9 +774,9 @@
       xyz="0 0 1" />
     <limit
       lower="-0.2"
-      upper="0"
-      effort="0"
-      velocity="0" />
+      upper="0.1"
+      effort="10"
+      velocity="10" />
   </joint>
 
   <transmission name="L_docker_shaft_trans">
@@ -792,7 +792,7 @@
 
   <gazebo>
     <plugin filename="libgazebo_ros_control.so" name="gazebo_ros_control">
-      <robotNamespace>/</robotNamespace>
+      <robotNamespace>/optimus_front_namespace/</robotNamespace>
       <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
       <legacyModeNS>true</legacyModeNS>
     </plugin>

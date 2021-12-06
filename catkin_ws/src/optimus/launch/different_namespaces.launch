@@ -1,31 +1,42 @@
 <launch> 
 
-  <include file= "$(find gazebo_ros)/launch/empty_world.launch" />
+  <include file= "$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="paused" value="true" />
+  </include>
 
   <group ns="optimus_front_namespace">
-    <param name="robot_description" command="$(find xacro)/xacro --inorder $(find optimus_front)/urdf/optimus_front.urdf" />
+    <param name="robot_description" command="$(find xacro)/xacro --inorder $(find optimus_front_down)/urdf/optimus_front_down.urdf" />
     <param name = "robot_front" value="optimus_front"/> 
-    <!-- <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" /> -->
+    <arg name ="init_pose" value="-x 0.55 -y 0 -z 0.45 -R 0 -P 0 -Y 0"/>
 
-    <node name="joint_state_publisher" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" />
+    <!-- Reading control config file -->
+    <rosparam file="$(find optimus_front_down)/config/control.yaml" command="load"/>
+
+    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+    <!-- <node name="joint_state_publisher" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" /> -->
+
+    <node name="controller_spwaner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="optimus_joint_state_controller optimus_FR_outer_wheel_controller optimus_FR_outer_wheel_connector_controller optimus_FL_outer_wheel_controller optimus_FL_outer_wheel_connector_controller optimus_FR_inner_wheel_controller optimus_FR_inner_wheel_connector_controller optimus_FL_inner_wheel_controller optimus_FL_inner_wheel_connector_controller optimus_R_docker_shaft_controller optimus_L_docker_shaft_controller" />
 
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen"/>
-
-    <arg name ="init_pose" value="-x 1.0 -y 0 -z 0 -R 0 -P 0 -Y 0"/>
 
     <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" args="$(arg init_pose) -urdf -model robot_front -param robot_description"/>
   </group>
 
   <group ns="optimus_rear_namespace">
-    <param name="robot_description" command="$(find xacro)/xacro --inorder $(find optimus_rear)/urdf/optimus_rear.urdf" />
+    <param name="robot_description" command="$(find xacro)/xacro --inorder $(find optimus_rear_down)/urdf/optimus_rear_down.urdf" />
     <param name = "robot_rear" value="optimus_rear"/> 
-    <!-- <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" /> -->
 
-    <node name="joint_state_publisher" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" />
+    <!-- Reading control config file -->
+    <rosparam file="$(find optimus_rear_down)/config/control.yaml" command="load"/>
+
+    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+    <!-- <node name="joint_state_publisher" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" /> -->
+
+    <node name="controller_spwaner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="optimus_joint_state_controller optimus_RR_outer_wheel_controller optimus_RR_outer_wheel_connector_controller optimus_RL_outer_wheel_controller optimus_RL_outer_wheel_connector_controller optimus_RR_inner_wheel_controller optimus_RR_inner_wheel_connector_controller optimus_RL_inner_wheel_controller optimus_RL_inner_wheel_connector_controller" />
 
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen"/>
 
-    <arg name ="init_pose" value="-x -1.0 -y 0 -z 0 -R 0 -P 0 -Y 0"/>
+    <arg name ="init_pose" value="-x -0.5 -y 0 -z 0.45 -R 0 -P 0 -Y 0"/>
 
     <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" args="$(arg init_pose) -urdf -model robot_rear -param robot_description"/>
   </group>

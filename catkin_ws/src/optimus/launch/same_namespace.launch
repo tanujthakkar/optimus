@@ -1,10 +1,16 @@
 <launch> 
 
-  <include file= "$(find gazebo_ros)/launch/empty_world.launch" />
+  <include file= "$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="paused" value="true" />
+  </include>
 
-  <param name="robot_description" command="$(find xacro)/xacro --inorder $(find optimus)/urdf/optimus.urdf.xacro" />
-  <param name = "robot" value="optimus"/>
-  <arg name ="init_pose" value="-x 0.0 -y 0 -z 0.45 -R 0 -P 0 -Y 0"/>
+  <param name="robot_description" command="$(find xacro)/xacro --inorder $(find optimus_front_down)/urdf/optimus_front_down.urdf" />
+  <param name = "robot_front" value="optimus_front"/>
+  <arg name ="robot_front_init_pose" value="-x 0.51 -y 0 -z 0.45 -R 0 -P 0 -Y 0"/>
+
+  <param name="robot_description" command="$(find xacro)/xacro --inorder $(find optimus_rear_down)/urdf/optimus_rear_down.urdf" />
+  <param name = "robot_rear" value="optimus_rear"/>
+  <arg name ="robot_rear_init_pose" value="-x -0.51 -y 0 -z 0.45 -R 0 -P 0 -Y 0"/>
 
   <!-- Reading control config file -->
   <rosparam file="$(find optimus)/config/control.yaml" command="load"/>
@@ -18,10 +24,17 @@
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen"/>
 
   <node
-    name="spawn_model"
+    name="spawn_model_front"
     pkg="gazebo_ros"
     type="spawn_model"
-    args="$(arg init_pose) -param robot_description -urdf -model my_robot"
+    args="$(arg robot_front_init_pose) -param robot_description -urdf -model robot_front"
+    output="screen"/>
+
+  <node
+    name="spawn_model_rear"
+    pkg="gazebo_ros"
+    type="spawn_model"
+    args="$(arg robot_rear_init_pose) -param robot_description -urdf -model robot_rear"
     output="screen"/>
 
     <!--Default node -->

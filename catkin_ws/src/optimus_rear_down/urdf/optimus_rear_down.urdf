@@ -104,6 +104,9 @@
       upper="1.57"
       effort="100"
       velocity="100" />
+      <dynamics
+      friction="0.1"
+      damping="0.1" />
   </joint>
 
   <transmission name="RR_outer_wheel_connector_trans">
@@ -597,11 +600,11 @@
     </actuator>
   </transmission>
 
-  <!-- <gazebo>
+  <gazebo>
     <plugin filename="libgazebo_ros_control.so" name="gazebo_ros_control">
-      <robotNamespace>/</robotNamespace>
+      <robotNamespace>/optimus_rear_namespace/</robotNamespace>
       <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
       <legacyModeNS>true</legacyModeNS>
     </plugin>
-  </gazebo> -->
+  </gazebo>
 </robot>
