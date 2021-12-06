@@ -2,33 +2,17 @@
 
   <include file= "$(find gazebo_ros)/launch/empty_world.launch" />
 
-  <group ns="optimus_front_namespace">
-    <param name="robot_description" command="$(find xacro)/xacro --inorder $(find optimus_front)/urdf/optimus_front.urdf" />
-    <param name = "robot_front" value="optimus_front"/> 
-    <!-- <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" /> -->
+  <param name="robot_description" command="$(find xacro)/xacro --inorder $(find optimus)/urdf/optimus.urdf.xacro" />
+  <param name = "robot" value="optimus"/> 
 
-    <node name="joint_state_publisher" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" />
+  <!-- <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" /> -->
+  <node name="joint_state_publisher" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" />
 
-    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen"/>
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen"/>
 
-    <arg name ="init_pose" value="-x 1.0 -y 0 -z 0 -R 0 -P 0 -Y 0"/>
+  <arg name ="init_pose" value="-x 0.0 -y 0 -z 0 -R 0 -P 0 -Y 0"/>
 
-    <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" args="$(arg init_pose) -urdf -model robot_front -param robot_description"/>
-  </group>
-
-  <group ns="optimus_rear_namespace">
-    <param name="robot_description" command="$(find xacro)/xacro --inorder $(find optimus_rear)/urdf/optimus_rear.urdf" />
-    <param name = "robot_rear" value="optimus_rear"/> 
-    <!-- <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" /> -->
-
-    <node name="joint_state_publisher" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" />
-
-    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen"/>
-
-    <arg name ="init_pose" value="-x -1.0 -y 0 -z 0 -R 0 -P 0 -Y 0"/>
-
-    <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" args="$(arg init_pose) -urdf -model robot_rear -param robot_description"/>
-  </group>
+  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" args="$(arg init_pose) -urdf -model robot -param robot_description"/>
 
   <arg name="config" default="visualize" />
   <node name="rviz" pkg="rviz" type="rviz" args="-d $(find optimus)/rviz/$(arg config).rviz"/>

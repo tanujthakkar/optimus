@@ -97,7 +97,7 @@
     <axis
       xyz="0 -1 0" />
     <limit
-      lower="1.57"
+      lower="0"
       upper="0"
       effort="0"
       velocity="0" />
@@ -208,7 +208,7 @@
     <axis
       xyz="0 -1 0" />
     <limit
-      lower="1.57"
+      lower="0"
       upper="0"
       effort="0"
       velocity="0" />
@@ -319,7 +319,7 @@
     <axis
       xyz="0 -1 0" />
     <limit
-      lower="1.57"
+      lower="0"
       upper="0"
       effort="0"
       velocity="0" />
@@ -430,7 +430,7 @@
     <axis
       xyz="0 -1 0" />
     <limit
-      lower="1.57"
+      lower="0"
       upper="0"
       effort="0"
       velocity="0" />
@@ -488,4 +488,7 @@
     <axis
       xyz="0 1 0" />
   </joint>
+
+  <!-- <xacro:include filename="$(find optimus_rear)/urdf/optimus_rear.gazebo" /> -->
+
 </robot>

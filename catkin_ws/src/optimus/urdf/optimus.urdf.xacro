@@ -17,15 +17,17 @@
   </link>
 
   <joint name="base_optimus_front_joint" type="fixed">
-    <origin xyz="0.5 0 0" rpy="0 0 0" />
+    <origin xyz="0.5 0 -0.44" rpy="0 0 0" />
     <parent link="base_link"/>
     <child link="optimus_front" />
   </joint>
 
   <joint name="base_optimus_rear_joint" type="fixed">
-    <origin xyz="-0.5 0 0" rpy="0 0 0" />
+    <origin xyz="-0.5 0 -0.44" rpy="0 0 0" />
     <parent link="base_link"/>
     <child link="optimus_rear" />
   </joint>
+
+  <xacro:include filename="$(find optimus)/urdf/optimus.gazebo" />
 
 </robot>

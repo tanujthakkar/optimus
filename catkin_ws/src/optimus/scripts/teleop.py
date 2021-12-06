@@ -60,14 +60,14 @@ def vels(speed,turn):
 if __name__=="__main__":
     settings = termios.tcgetattr(sys.stdin)
     
-    rospy.init_node('turtlebot_teleop')
+    rospy.init_node('optimus_control')
 
-    pub_right = rospy.Publisher('/optimus_FR_wheel_connector_controller/command', Float64, queue_size=10) # Publisher for Front-Right connector
-    pub_left = rospy.Publisher('/optimus_FL_wheel_connector_controller/command', Float64, queue_size=10) # Publisher for Front-Left connector
-    pub_move_FR = rospy.Publisher('/optimus_FR_wheel_controller/command', Float64, queue_size=10) # Publisher for Front-Right wheel
-    pub_move_FL = rospy.Publisher('/optimus_FL_wheel_controller/command', Float64, queue_size=10) # Publisher for Front-Left wheel
-    pub_move_RR = rospy.Publisher('/optimus_RR_wheel_controller/command', Float64, queue_size=10) # Publisher for Rear-Right wheel
-    pub_move_RL = rospy.Publisher('/optimus_RL_wheel_controller/command', Float64, queue_size=10) # Publisher for Rear-Left wheel
+    pub_right = rospy.Publisher('/optimus_FR_outer_wheel_connector_controller/command', Float64, queue_size=10) # Publisher for Front-Right connector
+    pub_left = rospy.Publisher('/optimus_FL_outer_wheel_connector_controller/command', Float64, queue_size=10) # Publisher for Front-Left connector
+    pub_move_FR = rospy.Publisher('/optimus_FR_outer_wheel_controller/command', Float64, queue_size=10) # Publisher for Front-Right wheel
+    pub_move_FL = rospy.Publisher('/optimus_FL_outer_wheel_controller/command', Float64, queue_size=10) # Publisher for Front-Left wheel
+    pub_move_RR = rospy.Publisher('/optimus_RR_outer_wheel_controller/command', Float64, queue_size=10) # Publisher for Rear-Right wheel
+    pub_move_RL = rospy.Publisher('/optimus_RL_outer_wheel_controller/command', Float64, queue_size=10) # Publisher for Rear-Left wheel
 
     x = 0
     th = 0

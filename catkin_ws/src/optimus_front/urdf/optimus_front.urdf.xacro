@@ -5,8 +5,6 @@
 <robot
   name="optimus_front" xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <xacro:include filename="$(find optimus_front)/urdf/optimus_front.gazebo" />
-
   <link
     name="optimus_front">
     <inertial>
@@ -770,4 +768,7 @@
       effort="10"
       velocity="10" />
   </joint>
+
+  <!-- <xacro:include filename="$(find optimus_front)/urdf/optimus_front.gazebo" /> -->
+
 </robot>
