@@ -3,7 +3,10 @@
      Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
 <robot
-  name="optimus_front">
+  name="optimus_front" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find optimus_front)/urdf/optimus_front.gazebo" />
+
   <link
     name="optimus_front">
     <inertial>
@@ -44,6 +47,7 @@
       </geometry>
     </collision>
   </link>
+  
   <link
     name="FR_outer_wheel_connector_link">
     <inertial>
@@ -84,6 +88,7 @@
       </geometry>
     </collision>
   </link>
+  
   <joint
     name="FR_outer_wheel_connector_joint"
     type="revolute">
@@ -97,11 +102,23 @@
     <axis
       xyz="0 1 0" />
     <limit
-      lower="0"
+      lower="1.57"
       upper="0"
-      effort="0"
-      velocity="0" />
+      effort="10"
+      velocity="10" />
   </joint>
+
+  <transmission name="FR_outer_wheel_connector_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="FR_outer_wheel_connector_joint">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="FR_outer_wheel_connector_actuator">
+      <mechanicalReduction>1</mechanicalReduction>
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </actuator>
+  </transmission>
+  
   <link
     name="FR_outer_wheel_link">
     <inertial>
@@ -142,6 +159,7 @@
       </geometry>
     </collision>
   </link>
+  
   <joint
     name="FR_outer_wheel_joint"
     type="continuous">
@@ -153,8 +171,20 @@
     <child
       link="FR_outer_wheel_link" />
     <axis
-      xyz="0 -1 0" />
+      xyz="0 1 0" />
   </joint>
+
+  <transmission name="FR_outer_wheel_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="FR_outer_wheel_joint">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="FR_outer_wheel_actuator">
+      <mechanicalReduction>1</mechanicalReduction>
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </actuator>
+  </transmission>
+  
   <link
     name="FL_outer_wheel_connector_link">
     <inertial>
@@ -195,6 +225,7 @@
       </geometry>
     </collision>
   </link>
+  
   <joint
     name="FL_outer_wheel_connector_joint"
     type="revolute">
@@ -210,9 +241,21 @@
     <limit
       lower="0"
       upper="0"
-      effort="0"
-      velocity="0" />
+      effort="10"
+      velocity="10" />
   </joint>
+
+  <transmission name="FL_outer_wheel_connector_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="FL_outer_wheel_connector_joint">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="FL_outer_wheel_connector_actuator">
+      <mechanicalReduction>1</mechanicalReduction>
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </actuator>
+  </transmission>
+  
   <link
     name="FL_outer_wheel_link">
     <inertial>
@@ -253,6 +296,7 @@
       </geometry>
     </collision>
   </link>
+  
   <joint
     name="FL_outer_wheel_joint"
     type="continuous">
@@ -266,6 +310,18 @@
     <axis
       xyz="0 1 0" />
   </joint>
+
+  <transmission name="FL_outer_wheel_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="FL_outer_wheel_joint">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="FL_outer_wheel_actuator">
+      <mechanicalReduction>1</mechanicalReduction>
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </actuator>
+  </transmission>
+  
   <link
     name="FR_inner_wheel_connector_link">
     <inertial>
@@ -306,6 +362,7 @@
       </geometry>
     </collision>
   </link>
+  
   <joint
     name="FR_inner_wheel_connector_joint"
     type="revolute">
@@ -321,9 +378,21 @@
     <limit
       lower="0"
       upper="0"
-      effort="0"
-      velocity="0" />
+      effort="10"
+      velocity="10" />
   </joint>
+
+  <transmission name="FR_inner_wheel_connector_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="FR_inner_wheel_connector_joint">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="FR_inner_wheel_connector_actuator">
+      <mechanicalReduction>1</mechanicalReduction>
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </actuator>
+  </transmission>
+  
   <link
     name="FR_inner_wheel_link">
     <inertial>
@@ -364,6 +433,7 @@
       </geometry>
     </collision>
   </link>
+  
   <joint
     name="FR_inner_wheel_joint"
     type="continuous">
@@ -375,8 +445,20 @@
     <child
       link="FR_inner_wheel_link" />
     <axis
-      xyz="0 -1 0" />
+      xyz="0 1 0" />
   </joint>
+
+  <transmission name="FR_inner_wheel_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="FR_inner_wheel_joint">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="FR_inner_wheel_actuator">
+      <mechanicalReduction>1</mechanicalReduction>
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </actuator>
+  </transmission>
+  
   <link
     name="FL_inner_wheel_connector_link">
     <inertial>
@@ -417,6 +499,7 @@
       </geometry>
     </collision>
   </link>
+  
   <joint
     name="FL_inner_wheel_connector_joint"
     type="revolute">
@@ -428,13 +511,25 @@
     <child
       link="FL_inner_wheel_connector_link" />
     <axis
-      xyz="0 -1 0" />
+      xyz="0 1 0" />
     <limit
       lower="0"
       upper="0"
-      effort="0"
-      velocity="0" />
+      effort="10"
+      velocity="10" />
   </joint>
+
+  <transmission name="FL_inner_wheel_connector_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="FL_inner_wheel_connector_joint">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="FL_inner_wheel_connector_actuator">
+      <mechanicalReduction>1</mechanicalReduction>
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </actuator>
+  </transmission>
+  
   <link
     name="FL_inner_wheel_link">
     <inertial>
@@ -475,6 +570,7 @@
       </geometry>
     </collision>
   </link>
+  
   <joint
     name="FL_inner_wheel_joint"
     type="continuous">
@@ -488,6 +584,18 @@
     <axis
       xyz="0 1 0" />
   </joint>
+
+  <transmission name="FL_inner_wheel_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="FL_inner_wheel_joint">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="FL_inner_wheel_actuator">
+      <mechanicalReduction>1</mechanicalReduction>
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </actuator>
+  </transmission>
+  
   <link
     name="docker_link">
     <inertial>
@@ -528,6 +636,7 @@
       </geometry>
     </collision>
   </link>
+  
   <joint
     name="docker_joint"
     type="fixed">
@@ -541,6 +650,7 @@
     <axis
       xyz="0 0 0" />
   </joint>
+  
   <link
     name="R_docker_shaft_link">
     <inertial>
@@ -581,6 +691,7 @@
       </geometry>
     </collision>
   </link>
+  
   <joint
     name="R_docker_shaft_joint"
     type="prismatic">
@@ -594,11 +705,12 @@
     <axis
       xyz="0 0 1" />
     <limit
-      lower="-1"
+      lower="-0.2"
       upper="0"
-      effort="0"
-      velocity="0" />
+      effort="10"
+      velocity="10" />
   </joint>
+  
   <link
     name="L_docker_shaft_link">
     <inertial>
@@ -639,6 +751,7 @@
       </geometry>
     </collision>
   </link>
+  
   <joint
     name="L_docker_shaft_joint"
     type="prismatic">
@@ -652,9 +765,9 @@
     <axis
       xyz="0 0 1" />
     <limit
-      lower="-1"
+      lower="-0.2"
       upper="0"
-      effort="0"
-      velocity="0" />
+      effort="10"
+      velocity="10" />
   </joint>
 </robot>

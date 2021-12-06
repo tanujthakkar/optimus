@@ -1,0 +1,28 @@
+<launch> 
+
+  <include file= "$(find gazebo_ros)/launch/empty_world.launch" />
+
+  <param name="robot_description" command="$(find xacro)/xacro --inorder $(find optimus)/urdf/optimus.urdf.xacro" />
+  <param name = "robot_front" value="optimus_front"/> 
+
+  <!-- Reading control config file -->
+  <rosparam file="$(find optimus_front)/config/control.yaml" command="load"/>
+
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+  <!-- <node name="joint_state_publisher" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" /> -->
+
+  <!-- Controller spawner   -->
+  <node name="controller_spwaner" pkg="controller_manager" type="spawner" respawn="false"
+    output="screen" ns="/" args="optimus_joint_state_controller optimus_FR_outer_wheel_controller optimus_FL_outer_wheel_controller optimus_FR_inner_wheel_controller optimus_FL_inner_wheel_controller
+    optimus_FR_outer_wheel_connector_controller optimus_FL_outer_wheel_connector_controller optimus_FR_inner_wheel_connector_controller optimus_FL_inner_wheel_connector_controller" />
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen"/>
+
+  <arg name ="init_pose" value="-x 0.0 -y 0 -z 0 -R 0 -P 0 -Y 0"/>
+
+  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" args="$(arg init_pose) -urdf -model robot_front -param robot_description"/>
+
+  <arg name="config" default="visualize" />
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find optimus)/rviz/$(arg config).rviz"/>
+
+</launch>

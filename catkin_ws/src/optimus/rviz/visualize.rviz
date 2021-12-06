@@ -52,6 +52,95 @@ Visualization Manager:
       Plane Cell Count: 10
       Reference Frame: <Fixed Frame>
       Value: true
+    - Class: rviz/TF
+      Enabled: true
+      Frame Timeout: 15
+      Frames:
+        All Enabled: true
+        FL_inner_wheel_connector_link:
+          Value: true
+        FL_inner_wheel_link:
+          Value: true
+        FL_outer_wheel_connector_link:
+          Value: true
+        FL_outer_wheel_link:
+          Value: true
+        FR_inner_wheel_connector_link:
+          Value: true
+        FR_inner_wheel_link:
+          Value: true
+        FR_outer_wheel_connector_link:
+          Value: true
+        FR_outer_wheel_link:
+          Value: true
+        L_docker_shaft_link:
+          Value: true
+        RL_inner_wheel_connector_link:
+          Value: true
+        RL_inner_wheel_link:
+          Value: true
+        RL_outer_wheel_connector_link:
+          Value: true
+        RL_outer_wheel_link:
+          Value: true
+        RR_inner_wheel_connector_link:
+          Value: true
+        RR_inner_wheel_link:
+          Value: true
+        RR_outer_wheel_connector_link:
+          Value: true
+        RR_outer_wheel_link:
+          Value: true
+        R_docker_shaft_link:
+          Value: true
+        base_link:
+          Value: true
+        docker_link:
+          Value: true
+        optimus_front:
+          Value: true
+        optimus_rear:
+          Value: true
+      Marker Scale: 1
+      Name: TF
+      Show Arrows: true
+      Show Axes: true
+      Show Names: true
+      Tree:
+        base_link:
+          optimus_front:
+            FL_inner_wheel_connector_link:
+              FL_inner_wheel_link:
+                {}
+            FL_outer_wheel_connector_link:
+              FL_outer_wheel_link:
+                {}
+            FR_inner_wheel_connector_link:
+              FR_inner_wheel_link:
+                {}
+            FR_outer_wheel_connector_link:
+              FR_outer_wheel_link:
+                {}
+            docker_link:
+              L_docker_shaft_link:
+                {}
+              R_docker_shaft_link:
+                {}
+          optimus_rear:
+            RL_inner_wheel_connector_link:
+              RL_inner_wheel_link:
+                {}
+            RL_outer_wheel_connector_link:
+              RL_outer_wheel_link:
+                {}
+            RR_inner_wheel_connector_link:
+              RR_inner_wheel_link:
+                {}
+            RR_outer_wheel_connector_link:
+              RR_outer_wheel_link:
+                {}
+      Update Interval: 0
+      Value: true
     - Alpha: 1
       Class: rviz/RobotModel
       Collision Enabled: false
@@ -61,6 +150,51 @@ Visualization Manager:
         Expand Joint Details: false
         Expand Link Details: false
         Expand Tree: false
+        FL_inner_wheel_connector_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        FL_inner_wheel_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        FL_outer_wheel_connector_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        FL_outer_wheel_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        FR_inner_wheel_connector_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        FR_inner_wheel_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        FR_outer_wheel_connector_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        FR_outer_wheel_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        L_docker_shaft_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         Link Tree Style: Links in Alphabetic Order
         RL_inner_wheel_connector_link:
           Alpha: 1
@@ -102,6 +236,25 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        R_docker_shaft_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        docker_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        optimus_front:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         optimus_rear:
           Alpha: 1
           Show Axes: false
@@ -113,55 +266,11 @@ Visualization Manager:
       Update Interval: 0
       Value: true
       Visual Enabled: true
-    - Class: rviz/TF
-      Enabled: true
-      Frame Timeout: 15
-      Frames:
-        All Enabled: true
-        RL_inner_wheel_connector_link:
-          Value: true
-        RL_inner_wheel_link:
-          Value: true
-        RL_outer_wheel_connector_link:
-          Value: true
-        RL_outer_wheel_link:
-          Value: true
-        RR_inner_wheel_connector_link:
-          Value: true
-        RR_inner_wheel_link:
-          Value: true
-        RR_outer_wheel_connector_link:
-          Value: true
-        RR_outer_wheel_link:
-          Value: true
-        optimus_rear:
-          Value: true
-      Marker Scale: 1
-      Name: TF
-      Show Arrows: true
-      Show Axes: true
-      Show Names: true
-      Tree:
-        optimus_rear:
-          RL_inner_wheel_connector_link:
-            RL_inner_wheel_link:
-              {}
-          RL_outer_wheel_connector_link:
-            RL_outer_wheel_link:
-              {}
-          RR_inner_wheel_connector_link:
-            RR_inner_wheel_link:
-              {}
-          RR_outer_wheel_connector_link:
-            RR_outer_wheel_link:
-              {}
-      Update Interval: 0
-      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
     Default Light: true
-    Fixed Frame: optimus_rear
+    Fixed Frame: base_link
     Frame Rate: 30
   Name: root
   Tools:
@@ -185,25 +294,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 4.644041061401367
+      Distance: 5.325490951538086
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: -0.05088084936141968
-        Y: 0.11078348010778427
-        Z: 0.5082430243492126
+        X: -0.0925249233841896
+        Y: 0.07897636294364929
+        Z: 0.21942205727100372
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.9553978443145752
+      Pitch: 0.8503977060317993
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 3.1454007625579834
+      Yaw: 4.270406246185303
     Saved: ~
 Window Geometry:
   Displays:

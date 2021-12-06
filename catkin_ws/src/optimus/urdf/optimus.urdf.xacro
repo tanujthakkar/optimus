@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<robot
+  name="optimus" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <!-- Importing Optimus Front -->
+  <xacro:include filename="$(find optimus_front)/urdf/optimus_front.urdf.xacro" />
+
+  <!-- Importing Optimus Rear -->
+  <xacro:include filename="$(find optimus_rear)/urdf/optimus_rear.urdf.xacro" />
+ 
+  <!-- Bring in simulation data for Gazebo. -->
+  <!-- <xacro:include filename="$(find optimus_corrected_origin)/urdf/optimus_corrected_origin.gazebo" /> -->
+
+  <link 
+    name="base_link">
+  </link>
+
+  <joint name="base_optimus_front_joint" type="fixed">
+    <origin xyz="0.5 0 0" rpy="0 0 0" />
+    <parent link="base_link"/>
+    <child link="optimus_front" />
+  </joint>
+
+  <joint name="base_optimus_rear_joint" type="fixed">
+    <origin xyz="-0.5 0 0" rpy="0 0 0" />
+    <parent link="base_link"/>
+    <child link="optimus_rear" />
+  </joint>
+
+</robot>

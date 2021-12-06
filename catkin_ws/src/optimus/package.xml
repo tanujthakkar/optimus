@@ -1,10 +1,10 @@
 <package format="2">
-  <name>optimus_no_origin_change</name>
+  <name>optimus</name>
   <version>1.0.0</version>
   <description>
-    <p>URDF Description package for optimus_no_origin_change</p>
+    <p>URDF Description package for optimus</p>
     <p>This package contains configuration data, 3D models and launch files
-for optimus_no_origin_change robot</p>
+for optimus robot</p>
   </description>
   <author>TODO</author>
   <maintainer email="TODO@email.com" />
@@ -18,4 +18,6 @@ for optimus_no_origin_change robot</p>
   <export>
     <architecture_independent />
   </export>
+  <build_depend>message_generation</build_depend>
+  <exec_depend>message_runtime</exec_depend>
 </package>
