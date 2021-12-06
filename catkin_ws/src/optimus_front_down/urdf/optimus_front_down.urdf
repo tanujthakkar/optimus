@@ -1,0 +1,692 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="optimus_front_down">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.02527 -5.6758E-18 0.3"
+        rpy="0 0 0" />
+      <mass
+        value="122.44" />
+      <inertia
+        ixx="4.8934"
+        ixy="-7.3008E-17"
+        ixz="-4.0117E-16"
+        iyy="15.407"
+        iyz="2.0119E-16"
+        izz="11.325" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://optimus_front_down/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://optimus_front_down/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="FR_outer_wheel_connector_link">
+    <inertial>
+      <origin
+        xyz="0.322282451468766 -0.1 2.38352095543413E-17"
+        rpy="0 0 0" />
+      <mass
+        value="27.9159295503332" />
+      <inertia
+        ixx="0.195546159327483"
+        ixy="-5.51991460593637E-17"
+        ixz="1.4203553273733E-17"
+        iyy="1.42355930878676"
+        iyz="4.16333634234392E-19"
+        izz="1.4141193464615" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://optimus_front_down/meshes/FR_outer_wheel_connector_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://optimus_front_down/meshes/FR_outer_wheel_connector_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FR_outer_wheel_connector_joint"
+    type="revolute">
+    <origin
+      xyz="0.4 -0.3 0"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="FR_outer_wheel_connector_link" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0.0"
+      upper="1.57"
+      effort="10.0"
+      velocity="10.0" />
+  </joint>
+
+  <transmission name="FR_outer_wheel_connector_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="FR_outer_wheel_connector_joint">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="FR_outer_wheel_connector_actuator">
+      <mechanicalReduction>1</mechanicalReduction>
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </actuator>
+  </transmission>
+
+  <link
+    name="FR_outer_wheel_link">
+    <inertial>
+      <origin
+        xyz="2.18856437395054E-06 -0.512347882208055 2.35883896340653E-06"
+        rpy="0 0 0" />
+      <mass
+        value="41.7619829259394" />
+      <inertia
+        ixx="2.98739844435001"
+        ixy="5.19731246049959E-06"
+        ixz="9.47049445565518E-06"
+        iyy="4.63242150319623"
+        iyz="5.59291085026648E-06"
+        izz="2.98739982714818" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://optimus_front_down/meshes/FR_outer_wheel_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://optimus_front_down/meshes/FR_outer_wheel_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FR_outer_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="0.6 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="FR_outer_wheel_connector_link" />
+    <child
+      link="FR_outer_wheel_link" />
+    <axis
+      xyz="0 -1 0" />
+  </joint>
+
+  <transmission name="FR_outer_wheel_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="FR_outer_wheel_joint">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="FR_outer_wheel_actuator">
+      <mechanicalReduction>50</mechanicalReduction>
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </actuator>
+  </transmission>
+
+  <link
+    name="FL_outer_wheel_connector_link">
+    <inertial>
+      <origin
+        xyz="0.322282451468765 0.1 5.3569245319562E-17"
+        rpy="0 0 0" />
+      <mass
+        value="27.9159295503333" />
+      <inertia
+        ixx="0.195546159327483"
+        ixy="-2.09846168286331E-17"
+        ixz="7.16001224236828E-17"
+        iyy="1.42355930878677"
+        iyz="2.044660737018E-17"
+        izz="1.4141193464615" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://optimus_front_down/meshes/FL_outer_wheel_connector_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://optimus_front_down/meshes/FL_outer_wheel_connector_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FL_outer_wheel_connector_joint"
+    type="revolute">
+    <origin
+      xyz="0.4 0.3 0"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="FL_outer_wheel_connector_link" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="FL_outer_wheel_link">
+    <inertial>
+      <origin
+        xyz="-1.93900962541793E-06 0.512347882001405 2.56779508268048E-06"
+        rpy="0 0 0" />
+      <mass
+        value="41.7619827337532" />
+      <inertia
+        ixx="2.98739655561663"
+        ixy="4.60587625730364E-06"
+        ixz="-9.13843104496429E-06"
+        iyy="4.63242150289247"
+        iyz="-6.08912613205442E-06"
+        izz="2.98740171544462" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://optimus_front_down/meshes/FL_outer_wheel_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://optimus_front_down/meshes/FL_outer_wheel_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FL_outer_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="0.6 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="FL_outer_wheel_connector_link" />
+    <child
+      link="FL_outer_wheel_link" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="FR_inner_wheel_connector_link">
+    <inertial>
+      <origin
+        xyz="0 -0.034175 -0.12462"
+        rpy="0 0 0" />
+      <mass
+        value="2.8575" />
+      <inertia
+        ixx="0.035811"
+        ixy="-2.7361E-21"
+        ixz="2.9604E-19"
+        iyy="0.040326"
+        iyz="-0.00029364"
+        izz="0.0058124" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://optimus_front_down/meshes/FR_inner_wheel_connector_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://optimus_front_down/meshes/FR_inner_wheel_connector_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FR_inner_wheel_connector_joint"
+    type="revolute">
+    <origin
+      xyz="-0.25 -0.3 0"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="FR_inner_wheel_connector_link" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="FR_inner_wheel_link">
+    <inertial>
+      <origin
+        xyz="3.1417E-07 -0.12256 -3.3367E-06"
+        rpy="0 0 0" />
+      <mass
+        value="5.005" />
+      <inertia
+        ixx="0.092406"
+        ixy="2.2156E-08"
+        ixz="-5.4838E-08"
+        iyy="0.14472"
+        iyz="-2.3756E-07"
+        izz="0.092407" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://optimus_front_down/meshes/FR_inner_wheel_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://optimus_front_down/meshes/FR_inner_wheel_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FR_inner_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="0 -0.06 -0.22"
+      rpy="0 0 0" />
+    <parent
+      link="FR_inner_wheel_connector_link" />
+    <child
+      link="FR_inner_wheel_link" />
+    <axis
+      xyz="0 -1 0" />
+  </joint>
+  <link
+    name="FL_inner_wheel_connector_link">
+    <inertial>
+      <origin
+        xyz="0 0.0341754333918177 -0.124624737169442"
+        rpy="0 0 0" />
+      <mass
+        value="2.85749443017902" />
+      <inertia
+        ixx="0.03581067609395"
+        ixy="2.2681718422821E-19"
+        ixz="7.26756049753325E-19"
+        iyy="0.0403263961411894"
+        iyz="0.000293640119060309"
+        izz="0.00581241279075831" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://optimus_front_down/meshes/FL_inner_wheel_connector_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://optimus_front_down/meshes/FL_inner_wheel_connector_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FL_inner_wheel_connector_joint"
+    type="revolute">
+    <origin
+      xyz="-0.25 0.3 0"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="FL_inner_wheel_connector_link" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="FL_inner_wheel_link">
+    <inertial>
+      <origin
+        xyz="3.34954893538297E-06 0.122556779088173 1.14327129707714E-07"
+        rpy="0 0 0" />
+      <mass
+        value="5.00504892402156" />
+      <inertia
+        ixx="0.0924069629896759"
+        ixy="-2.38446525583343E-07"
+        ixz="2.07915727398644E-08"
+        iyy="0.144720367920823"
+        iyz="-8.34954545501746E-09"
+        izz="0.0924063709688521" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://optimus_front_down/meshes/FL_inner_wheel_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://optimus_front_down/meshes/FL_inner_wheel_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="FL_inner_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="0 0.06 -0.22"
+      rpy="0 0 0" />
+    <parent
+      link="FL_inner_wheel_connector_link" />
+    <child
+      link="FL_inner_wheel_link" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="docker_link">
+    <inertial>
+      <origin
+        xyz="0.00457179609915487 -5.55111512312578E-17 -0.1"
+        rpy="0 0 0" />
+      <mass
+        value="21.9893807017026" />
+      <inertia
+        ixx="0.747254753741331"
+        ixy="-2.50188335491672E-17"
+        ixz="1.02569795042368E-17"
+        iyy="0.147007532634037"
+        iyz="-3.46944695195361E-17"
+        izz="0.747666415030684" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://optimus_front_down/meshes/docker_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://optimus_front_down/meshes/docker_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="docker_joint"
+    type="fixed">
+    <origin
+      xyz="-0.5 0 0.3"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="docker_link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="R_docker_shaft_link">
+    <inertial>
+      <origin
+        xyz="0 0 -0.1"
+        rpy="0 0 0" />
+      <mass
+        value="1.00530964914873" />
+      <inertia
+        ixx="0.00375315602348861"
+        ixy="-4.65868120989865E-20"
+        ixz="-4.51750905202294E-20"
+        iyy="0.00375315602348861"
+        iyz="5.94108282522193E-36"
+        izz="0.000804247719318987" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://optimus_front_down/meshes/R_docker_shaft_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://optimus_front_down/meshes/R_docker_shaft_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="R_docker_shaft_joint"
+    type="prismatic">
+    <origin
+      xyz="-0.05 -0.15 0"
+      rpy="0 0 0" />
+    <parent
+      link="docker_link" />
+    <child
+      link="R_docker_shaft_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="L_docker_shaft_link">
+    <inertial>
+      <origin
+        xyz="0 -1.11022302462516E-16 -0.1"
+        rpy="0 0 0" />
+      <mass
+        value="1.00530964914873" />
+      <inertia
+        ixx="0.00375315602348861"
+        ixy="-1.05879118406788E-21"
+        ixz="4.35072173462046E-36"
+        iyy="0.00375315602348861"
+        iyz="1.17695383951691E-35"
+        izz="0.000804247719318987" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://optimus_front_down/meshes/L_docker_shaft_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://optimus_front_down/meshes/L_docker_shaft_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="L_docker_shaft_joint"
+    type="prismatic">
+    <origin
+      xyz="-0.05 0.15 0"
+      rpy="0 0 0" />
+    <parent
+      link="docker_link" />
+    <child
+      link="L_docker_shaft_link" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+
+  <gazebo>
+    <plugin filename="libgazebo_ros_control.so" name="gazebo_ros_control">
+      <robotNamespace>/</robotNamespace>
+      <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+      <legacyModeNS>true</legacyModeNS>
+    </plugin>
+  </gazebo>
+</robot>

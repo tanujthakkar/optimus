@@ -75,31 +75,13 @@ Visualization Manager:
           Value: true
         L_docker_shaft_link:
           Value: true
-        RL_inner_wheel_connector_link:
-          Value: true
-        RL_inner_wheel_link:
-          Value: true
-        RL_outer_wheel_connector_link:
-          Value: true
-        RL_outer_wheel_link:
-          Value: true
-        RR_inner_wheel_connector_link:
-          Value: true
-        RR_inner_wheel_link:
-          Value: true
-        RR_outer_wheel_connector_link:
-          Value: true
-        RR_outer_wheel_link:
-          Value: true
         R_docker_shaft_link:
           Value: true
         base_link:
           Value: true
         docker_link:
           Value: true
-        optimus_front:
-          Value: true
-        optimus_rear:
+        map:
           Value: true
       Marker Scale: 1
       Name: TF
@@ -107,8 +89,8 @@ Visualization Manager:
       Show Axes: true
       Show Names: true
       Tree:
-        base_link:
-          optimus_front:
+        map:
+          base_link:
             FL_inner_wheel_connector_link:
               FL_inner_wheel_link:
                 {}
@@ -125,19 +107,6 @@ Visualization Manager:
               L_docker_shaft_link:
                 {}
               R_docker_shaft_link:
-                {}
-          optimus_rear:
-            RL_inner_wheel_connector_link:
-              RL_inner_wheel_link:
-                {}
-            RL_outer_wheel_connector_link:
-              RL_outer_wheel_link:
-                {}
-            RR_inner_wheel_connector_link:
-              RR_inner_wheel_link:
-                {}
-            RR_outer_wheel_connector_link:
-              RR_outer_wheel_link:
                 {}
       Update Interval: 0
       Value: true
@@ -196,46 +165,6 @@ Visualization Manager:
           Show Trail: false
           Value: true
         Link Tree Style: Links in Alphabetic Order
-        RL_inner_wheel_connector_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        RL_inner_wheel_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        RL_outer_wheel_connector_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        RL_outer_wheel_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        RR_inner_wheel_connector_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        RR_inner_wheel_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        RR_outer_wheel_connector_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        RR_outer_wheel_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
         R_docker_shaft_link:
           Alpha: 1
           Show Axes: false
@@ -245,17 +174,8 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
+          Value: true
         docker_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        optimus_front:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        optimus_rear:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -270,7 +190,7 @@ Visualization Manager:
   Global Options:
     Background Color: 48; 48; 48
     Default Light: true
-    Fixed Frame: base_link
+    Fixed Frame: map
     Frame Rate: 30
   Name: root
   Tools:

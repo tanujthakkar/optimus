@@ -1,0 +1,523 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="optimus_rear_down">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.0327449438113643 -8.17379237077329E-06 0.3"
+        rpy="0 0 0" />
+      <mass
+        value="122.376866884981" />
+      <inertia
+        ixx="4.87633176370836"
+        ixy="0.000482881609340847"
+        ixz="-5.70419396334562E-16"
+        iyy="14.6800587529815"
+        iyz="1.96503014421023E-16"
+        izz="10.6029682652451" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://optimus_rear_down/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://optimus_rear_down/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="RR_outer_wheel_connector_link">
+    <inertial>
+      <origin
+        xyz="-0.322282451468766 -0.1 -5.78940774721395E-17"
+        rpy="0 0 0" />
+      <mass
+        value="27.9159295503333" />
+      <inertia
+        ixx="0.195546159327483"
+        ixy="-2.09846168286331E-17"
+        ixz="-7.16344137027826E-17"
+        iyy="1.42355930878677"
+        iyz="-2.044660737018E-17"
+        izz="1.4141193464615" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://optimus_rear_down/meshes/RR_outer_wheel_connector_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://optimus_rear_down/meshes/RR_outer_wheel_connector_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RR_outer_wheel_connector_joint"
+    type="revolute">
+    <origin
+      xyz="-0.4 -0.3 0"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="RR_outer_wheel_connector_link" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="0"
+      upper="1.57"
+      effort="10"
+      velocity="10" />
+  </joint>
+
+  <transmission name="RR_outer_wheel_connector_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RR_outer_wheel_connector_joint">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="RR_outer_wheel_connector_actuator">
+      <mechanicalReduction>1</mechanicalReduction>
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </actuator>
+  </transmission>
+
+  <link
+    name="RR_outer_wheel_link">
+    <inertial>
+      <origin
+        xyz="2.30908879206293E-06 -0.512347882208065 -2.24099179537582E-06"
+        rpy="0 0 0" />
+      <mass
+        value="41.7619829259419" />
+      <inertia
+        ixx="2.98739940114351"
+        ixy="5.47476840660268E-06"
+        ixz="-9.49198889283838E-06"
+        iyy="4.63242150319647"
+        iyz="-5.32161813234862E-06"
+        izz="2.98739887035503" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://optimus_rear_down/meshes/RR_outer_wheel_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://optimus_rear_down/meshes/RR_outer_wheel_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RR_outer_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="-0.6 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="RR_outer_wheel_connector_link" />
+    <child
+      link="RR_outer_wheel_link" />
+    <axis
+      xyz="0 -1 0" />
+  </joint>
+
+  <transmission name="RR_outer_wheel_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="RR_outer_wheel_joint">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="RR_outer_wheel_actuator">
+      <mechanicalReduction>10</mechanicalReduction>
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </actuator>
+  </transmission>
+
+  <link
+    name="RL_outer_wheel_connector_link">
+    <inertial>
+      <origin
+        xyz="-0.322282451468766 0.1 1.22232717603504E-16"
+        rpy="0 0 0" />
+      <mass
+        value="27.9159295503333" />
+      <inertia
+        ixx="0.195546159327483"
+        ixy="-4.79744556166558E-17"
+        ixz="1.22213373370811E-17"
+        iyy="1.42355930878677"
+        iyz="-2.044660737018E-17"
+        izz="1.4141193464615" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://optimus_rear_down/meshes/RL_outer_wheel_connector_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://optimus_rear_down/meshes/RL_outer_wheel_connector_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RL_outer_wheel_connector_joint"
+    type="revolute">
+    <origin
+      xyz="-0.4 0.3 0"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="RL_outer_wheel_connector_link" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="RL_outer_wheel_link">
+    <inertial>
+      <origin
+        xyz="-3.11176429157456E-06 0.512347883757849 -8.19057979347473E-07"
+        rpy="0 0 0" />
+      <mass
+        value="41.7619841663443" />
+      <inertia
+        ixx="2.98740739168957"
+        ixy="7.38196124548242E-06"
+        ixz="4.69124093974201E-06"
+        iyy="4.63242150319647"
+        iyz="1.94919389492616E-06"
+        izz="2.98739087980896" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://optimus_rear_down/meshes/RL_outer_wheel_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://optimus_rear_down/meshes/RL_outer_wheel_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RL_outer_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="-0.6 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="RL_outer_wheel_connector_link" />
+    <child
+      link="RL_outer_wheel_link" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="RR_inner_wheel_connector_link">
+    <inertial>
+      <origin
+        xyz="0 -0.0341754333918177 -0.124624737169442"
+        rpy="0 0 0" />
+      <mass
+        value="2.85749443017902" />
+      <inertia
+        ixx="0.03581067609395"
+        ixy="1.38060964134369E-19"
+        ixz="1.93066817167967E-18"
+        iyy="0.0403263961411894"
+        iyz="-0.000293640119060309"
+        izz="0.00581241279075832" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://optimus_rear_down/meshes/RR_inner_wheel_connector_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://optimus_rear_down/meshes/RR_inner_wheel_connector_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RR_inner_wheel_connector_joint"
+    type="revolute">
+    <origin
+      xyz="0.25 -0.3 0"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="RR_inner_wheel_connector_link" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="RR_inner_wheel_link">
+    <inertial>
+      <origin
+        xyz="-3.26488667362623E-06 -0.122556779088178 -7.5700974569437E-07"
+        rpy="0 0 0" />
+      <mass
+        value="5.0050489240219" />
+      <inertia
+        ixx="0.0924069336866162"
+        ixy="-2.3247422630764E-07"
+        ixz="1.30083208154799E-07"
+        iyy="0.144720367920831"
+        iyz="-5.36860750277629E-08"
+        izz="0.0924064002719234" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://optimus_rear_down/meshes/RR_inner_wheel_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://optimus_rear_down/meshes/RR_inner_wheel_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RR_inner_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="0 -0.06 -0.22"
+      rpy="0 0 0" />
+    <parent
+      link="RR_inner_wheel_connector_link" />
+    <child
+      link="RR_inner_wheel_link" />
+    <axis
+      xyz="0 -1 0" />
+  </joint>
+  <link
+    name="RL_inner_wheel_connector_link">
+    <inertial>
+      <origin
+        xyz="0 0.0341754333918177 -0.124624737169442"
+        rpy="0 0 0" />
+      <mass
+        value="2.85749443017902" />
+      <inertia
+        ixx="0.03581067609395"
+        ixy="3.24261450153141E-19"
+        ixz="-2.25550441644713E-18"
+        iyy="0.0403263961411894"
+        iyz="0.00029364011906031"
+        izz="0.0058124127907583" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://optimus_rear_down/meshes/RL_inner_wheel_connector_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://optimus_rear_down/meshes/RL_inner_wheel_connector_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RL_inner_wheel_connector_joint"
+    type="revolute">
+    <origin
+      xyz="0.25 0.3 0"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="RL_inner_wheel_connector_link" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="RL_inner_wheel_link">
+    <inertial>
+      <origin
+        xyz="2.42420802271104E-06 0.122556778342622 -2.31425236146832E-06"
+        rpy="0 0 0" />
+      <mass
+        value="5.00504876897153" />
+      <inertia
+        ixx="0.0924066812914037"
+        ixy="-1.7272442283364E-07"
+        ixz="-2.96390424904804E-07"
+        iyy="0.144720367774984"
+        iyz="1.64598745570869E-07"
+        izz="0.0924066524688732" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://optimus_rear_down/meshes/RL_inner_wheel_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://optimus_rear_down/meshes/RL_inner_wheel_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="RL_inner_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="0 0.06 -0.22"
+      rpy="0 0 0" />
+    <parent
+      link="RL_inner_wheel_connector_link" />
+    <child
+      link="RL_inner_wheel_link" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+
+  <gazebo>
+    <plugin filename="libgazebo_ros_control.so" name="gazebo_ros_control">
+      <robotNamespace>/</robotNamespace>
+      <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+      <legacyModeNS>true</legacyModeNS>
+    </plugin>
+  </gazebo>
+</robot>

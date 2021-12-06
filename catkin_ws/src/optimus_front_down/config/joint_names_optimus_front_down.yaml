@@ -1,0 +1,1 @@
+controller_joint_names: ['', 'FR_outer_wheel_connector_joint', 'FR_outer_wheel_joint', 'FL_outer_wheel_connector_joint', 'FL_outer_wheel_joint', 'FR_inner_wheel_connector_joint', 'FR_inner_wheel_joint', 'FL_inner_wheel_connector_joint', 'FL_inner_wheel_joint', 'R_docker_shaft_joint', 'L_docker_shaft_joint', ]
