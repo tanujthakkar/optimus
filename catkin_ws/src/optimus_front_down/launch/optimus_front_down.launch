@@ -3,7 +3,7 @@
   <include file= "$(find gazebo_ros)/launch/empty_world.launch" />
 
   <group ns="optimus_front_namespace">
-    <param name="robot_description" command="$(find xacro)/xacro --inorder $(find optimus_front_down)/urdf/optimus_front_down.urdf" />
+    <param name="robot_description" command="$(find xacro)/xacro --inorder $(find optimus_front_down)/urdf/optimus_front_down.urdf.xacro" />
     <param name = "robot_front" value="optimus_front"/> 
     <arg name ="init_pose" value="-x 0 -y 0 -z 0.45 -R 0 -P 0 -Y 0"/>
 
@@ -13,7 +13,7 @@
     <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
     <!-- <node name="joint_state_publisher" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" /> -->
 
-    <node name="controller_spwaner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="optimus_joint_state_controller optimus_FR_outer_wheel_controller optimus_FR_outer_wheel_connector_controller optimus_FL_outer_wheel_controller optimus_FL_outer_wheel_connector_controller optimus_FR_inner_wheel_controller optimus_FR_inner_wheel_connector_controller optimus_FL_inner_wheel_controller optimus_FL_inner_wheel_connector_controller optimus_R_docker_shaft_controller optimus_L_docker_shaft_controller" />
+    <node name="controller_spwaner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="optimus_joint_state_controller optimus_FR_outer_wheel_controller optimus_FR_outer_wheel_connector_controller optimus_FL_outer_wheel_controller optimus_FL_outer_wheel_connector_controller optimus_FR_inner_wheel_controller optimus_FR_inner_wheel_connector_controller optimus_FL_inner_wheel_controller optimus_FL_inner_wheel_connector_controller optimus_R_docker_shaft_controller optimus_L_docker_shaft_controller UR10_shoulder_pan_joint_controller UR10_shoulder_lift_joint_controller UR10_elbow_joint_controller UR10_wrist_1_joint_controller UR10_wrist_2_joint_controller UR10_wrist_3_joint_controller" />
 
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen"/>
 

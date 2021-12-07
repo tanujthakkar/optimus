@@ -43,3 +43,34 @@ optimus_RL_inner_wheel_connector_controller:
     type: position_controllers/JointPositionController
     joint: 'RL_inner_wheel_connector_joint'
     pid: {p: 1.0, i: 0.0, d: 0.0}
+
+# UR10 Control
+UR10_shoulder_pan_joint_controller:
+    type: position_controllers/JointPositionController
+    joint: 'ur10e_rear_shoulder_pan_joint'
+    pid: {p: 1.0, i: 0.0, d: 0.0}
+
+UR10_shoulder_lift_joint_controller:
+    type: position_controllers/JointPositionController
+    joint: 'ur10e_rear_shoulder_lift_joint'
+    pid: {p: 1.0, i: 0.0, d: 0.0}
+
+UR10_elbow_joint_controller:
+    type: position_controllers/JointPositionController
+    joint: 'ur10e_rear_elbow_joint'
+    pid: {p: 1.0, i: 0.0, d: 0.0}
+
+UR10_wrist_1_joint_controller:
+    type: position_controllers/JointPositionController
+    joint: 'ur10e_rear_wrist_1_joint'
+    pid: {p: 1.0, i: 0.0, d: 0.0}
+
+UR10_wrist_2_joint_controller:
+    type: position_controllers/JointPositionController
+    joint: 'ur10e_rear_wrist_2_joint'
+    pid: {p: 1.0, i: 0.0, d: 0.0}
+
+UR10_wrist_3_joint_controller:
+    type: position_controllers/JointPositionController
+    joint: 'ur10e_rear_wrist_3_joint'
+    pid: {p: 1.0, i: 0.0, d: 0.0}

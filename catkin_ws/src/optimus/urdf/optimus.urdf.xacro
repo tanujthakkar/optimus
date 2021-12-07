@@ -4,10 +4,10 @@
   name="optimus" xmlns:xacro="http://ros.org/wiki/xacro">
 
   <!-- Importing Optimus Front -->
-  <xacro:include filename="$(find optimus_front_down)/urdf/optimus_front_down.urdf" />
+  <xacro:include filename="$(find optimus_front_down)/urdf/optimus_front_down.urdf.xacro" />
 
   <!-- Importing Optimus Rear -->
-  <xacro:include filename="$(find optimus_rear_down)/urdf/optimus_rear_down.urdf" />
+  <xacro:include filename="$(find optimus_rear_down)/urdf/optimus_rear_down.urdf.xacro" />
 
   <link 
     name="base_link">

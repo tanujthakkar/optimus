@@ -10,11 +10,22 @@ Moving around:
    u    i    o
    j    k    l
    m    ,    .
-q/z : increase/decrease max speeds by 10%
-w/x : increase/decrease only linear speed by 10%
-e/c : increase/decrease only angular speed by 10%
+q/w : increase/decrease max speeds by 10%
+a/s : increase/decrease only linear speed by 10%
+z/x : increase/decrease only angular speed by 10%
 space key, k : force stop
 anything else : stop smoothly
+
+UR10 Control:
+
+q/w : Shoulder Pan
+a/s : Shoulder Lift
+z/x : Elbow
+q/w : Wrist 1
+a/s : Wrist 2
+z/x : Wrist 3
+
+
 CTRL-C to quit
 """
 
@@ -31,12 +42,14 @@ moveBindings = {
 
 speedBindings={
         'q':(1.1,1.1),
-        'z':(.9,.9),
-        'w':(1.1,1),
-        'x':(.9,1),
-        'e':(1,1.1),
-        'c':(1,.9),
+        'w':(.9,.9),
+        'a':(1.1,1),
+        's':(.9,1),
+        'z':(1,1.1),
+        'x':(1,.9),
           }
+
+UR10_bindings = ['e', 'r', 'd', 'f', 'c', 'v', 't', 'y', 'g', 'h', 'b', 'n']
 
 def getKey():
     tty.setraw(sys.stdin.fileno())
@@ -51,6 +64,15 @@ def getKey():
 
 speed = 8
 turn = 0.5
+
+SPP = 0.0
+SLP = 0.0
+EP = 0.0
+W1P = 0.0
+W2P = 0.0
+W3P = 0.0
+
+dock_flag = False
 
 def vels(speed,turn):
     return "currently:\tspeed %s\tturn %s " % (speed,turn)
@@ -69,6 +91,17 @@ if __name__=="__main__":
     pub_move_FIR = rospy.Publisher('/optimus_front_namespace/optimus_FR_inner_wheel_controller/command', Float64, queue_size=10) # Publisher for Rear-Right wheel
     pub_move_FIL = rospy.Publisher('/optimus_front_namespace/optimus_FL_inner_wheel_controller/command', Float64, queue_size=10) # Publisher for Rear-Left wheel
 
+    pub_docker_right = rospy.Publisher('/optimus_front_namespace/optimus_FL_inner_wheel_controller/command', Float64, queue_size=10) # Publisher for Rear-Left wheel
+    pub_docker_left = rospy.Publisher('/optimus_front_namespace/optimus_FL_inner_wheel_controller/command', Float64, queue_size=10) # Publisher for Rear-Left wheel
+
+    # UR10 Control
+    pub_shouler_pan = rospy.Publisher('/optimus_front_namespace/UR10_shoulder_pan_joint_controller/command', Float64, queue_size=10)
+    pub_shouler_lift = rospy.Publisher('/optimus_front_namespace/UR10_shoulder_lift_joint_controller/command', Float64, queue_size=10)
+    pub_elbow = rospy.Publisher('/optimus_front_namespace/UR10_elbow_joint_controller/command', Float64, queue_size=10)
+    pub_shouler_wrist_1 = rospy.Publisher('/optimus_front_namespace/UR10_wrist_1_joint_controller/command', Float64, queue_size=10)
+    pub_shouler_wrist_2 = rospy.Publisher('/optimus_front_namespace/UR10_wrist_2_joint_controller/command', Float64, queue_size=10)
+    pub_shouler_wrist_3 = rospy.Publisher('/optimus_front_namespace/UR10_wrist_3_joint_controller/command', Float64, queue_size=10)
+    
     x = 0
     th = 0
     status = 0
@@ -153,6 +186,40 @@ if __name__=="__main__":
 
                 pub_move_FOL.publish(speed_left)
                 pub_move_FIL.publish(speed_left)
+
+            # UR10 Control
+            if key in UR10_bindings:
+                if key == 'e':
+                    SPP += 0.1
+                if key == 'r':
+                    SPP -= 0.1
+                if key == 'd':
+                    SLP += 0.1
+                if key == 'f':
+                    SLP -= 0.1
+                if key == 'c':
+                    EP += 0.1
+                if key == 'v':
+                    EP -= 0.1
+                if key == 't':
+                    W1P += 0.1
+                if key == 'y':
+                    W1P -= 0.1
+                if key == 'g':
+                    W2P += 0.1
+                if key == 'h':
+                    W2P -= 0.1
+                if key == 'b':
+                    W3P += 0.1
+                if key == 'n':
+                    W3P -= 0.1
+
+                pub_shouler_pan.publish(SPP)
+                pub_shouler_lift.publish(SLP)
+                pub_elbow.publish(EP)
+                pub_shouler_wrist_1.publish(W1P)
+                pub_shouler_wrist_2.publish(W2P)
+                pub_shouler_wrist_3.publish(W3P)
 
     except:
         pass

@@ -3,7 +3,8 @@
      Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
 <robot
-  name="optimus_front_down">
+  name="optimus_front_down" xmlns:xacro="http://ros.org/wiki/xacro">
+
   <link
     name="optimus_front_down">
     <inertial>
@@ -802,6 +803,21 @@
     </actuator>
   </transmission>
 
+  <!-- Importing UR_10 -->
+  <!-- <xacro:include filename="$(find ur_e_description)/urdf/common.gazebo.xacro" /> -->
+  <xacro:include filename="$(find ur_e_description)/urdf/ur10e.urdf.xacro" />
+  <xacro:ur10e_robot prefix="ur10e_front_" joint_limited="false"/>
+  <!-- <xacro:include filename="$(find ur_e_description)/urdf/arm_extras_ur10.urdf.xacro" />
+  <xacro:include filename="$(find ur_e_description)/urdf/rg2.urdf.xacro" />
+  <xacro:arm_extras prefix="ur10e_front_" joint_limited="false" kinect_prefix="ur10e_front_kinetic"/>
+  <xacro:rg2 prefix="ur10e_front_"/> -->
+
+  <joint name="ur10_front_joint" type="fixed">
+    <origin xyz="0.3 0 0.1" rpy="0 0 0" />
+    <parent link="optimus_front_down"/>
+    <child link="ur10e_front_base_link" />
+  </joint>
+
   <gazebo>
     <plugin filename="libgazebo_ros_control.so" name="gazebo_ros_control">
       <!-- <robotNamespace>/</robotNamespace> -->
@@ -809,6 +825,46 @@
       <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
       <legacyModeNS>true</legacyModeNS>
     </plugin>
+  </gazebo>
+
+  <gazebo reference="optimus_front_down">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+
+  <gazebo reference="FR_outer_wheel_link">
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+  <gazebo reference="FL_outer_wheel_link">
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+  <gazebo reference="FR_inner_wheel_link">
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+  <gazebo reference="FL_inner_wheel_link">
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+
+  <gazebo reference="FR_outer_wheel_connector_link">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+  <gazebo reference="FL_outer_wheel_connector_link">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+  <gazebo reference="FR_inner_wheel_connector_link">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+  <gazebo reference="FL_inner_wheel_connector_link">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+
+  <gazebo reference="docker_link">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+  <gazebo reference="R_docker_shaft_link">
+    <material>Gazebo/Red</material>
+  </gazebo>
+  <gazebo reference="L_docker_shaft_link">
+    <material>Gazebo/Red</material>
   </gazebo>
 
 </robot>
