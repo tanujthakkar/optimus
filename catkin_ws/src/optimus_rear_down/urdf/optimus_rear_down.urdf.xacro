@@ -615,7 +615,7 @@
   <xacro:ur10e_robot prefix="ur10e_rear_" joint_limited="false"/>
 
   <joint name="ur10_rear_joint" type="fixed">
-    <origin xyz="0.3 0 0.1" rpy="0 0 -3.14" />
+    <origin xyz="-0.3 0 0.1" rpy="0 0 -3.14" />
     <parent link="optimus_rear_down"/>
     <child link="ur10e_rear_base_link" />
   </joint>

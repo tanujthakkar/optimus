@@ -15,6 +15,14 @@ w/x : increase/decrease only linear speed by 10%
 e/c : increase/decrease only angular speed by 10%
 space key, k : force stop
 anything else : stop smoothly
+
+r/v: Front Outer Bogie
+t/b: Rear Outer Bogie
+y/n: Front Inner Bogie
+u/m: Rear Inner Bogie
+
+a: Toggle Attached Mode (Front/Rear Bogie Joint Control)
+
 CTRL-C to quit
 """
 

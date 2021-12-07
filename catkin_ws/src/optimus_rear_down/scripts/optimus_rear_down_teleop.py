@@ -18,12 +18,12 @@ anything else : stop smoothly
 
 UR10 Control:
 
-q/w : Shoulder Pan
-a/s : Shoulder Lift
-z/x : Elbow
-q/w : Wrist 1
-a/s : Wrist 2
-z/x : Wrist 3
+e/r : Shoulder Pan
+d/f : Shoulder Lift
+c/v : Elbow
+t/y : Wrist 1
+g/h : Wrist 2
+b/n : Wrist 3
 
 CTRL-C to quit
 """

@@ -1,6 +1,8 @@
 <launch> 
 
-  <include file= "$(find gazebo_ros)/launch/empty_world.launch" />
+  <include file= "$(find gazebo_ros)/launch/empty_world.launch"> 
+    <arg name="world_name" value="$(find optimus)/worlds/apollo.world"/> 
+  </include>
 
   <param name="robot_description" command="$(find xacro)/xacro --inorder $(find optimus)/urdf/optimus.urdf.xacro" />
   <param name = "robot" value="optimus"/>
@@ -13,7 +15,7 @@
   <!-- <node name="joint_state_publisher" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" /> -->
 
   <!-- Controller spawner   -->
-  <node name="controller_spwaner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="/" args="optimus_joint_state_controller optimus_FR_outer_wheel_controller optimus_FR_outer_wheel_connector_controller optimus_FL_outer_wheel_controller optimus_FL_outer_wheel_connector_controller optimus_FR_inner_wheel_controller optimus_FR_inner_wheel_connector_controller optimus_FL_inner_wheel_controller optimus_FL_inner_wheel_connector_controller optimus_R_docker_shaft_controller optimus_L_docker_shaft_controller optimus_RR_outer_wheel_controller optimus_RR_outer_wheel_connector_controller optimus_RL_outer_wheel_controller optimus_RL_outer_wheel_connector_controller optimus_RR_inner_wheel_controller optimus_RR_inner_wheel_connector_controller optimus_RL_inner_wheel_controller optimus_RL_inner_wheel_connector_controller" />
+  <node name="controller_spwaner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="/" args="optimus_joint_state_controller optimus_FR_outer_wheel_controller optimus_FR_outer_wheel_connector_controller optimus_FL_outer_wheel_controller optimus_FL_outer_wheel_connector_controller optimus_FR_inner_wheel_controller optimus_FR_inner_wheel_connector_controller optimus_FL_inner_wheel_controller optimus_FL_inner_wheel_connector_controller optimus_R_docker_shaft_controller optimus_L_docker_shaft_controller optimus_RR_outer_wheel_controller optimus_RR_outer_wheel_connector_controller optimus_RL_outer_wheel_controller optimus_RL_outer_wheel_connector_controller optimus_RR_inner_wheel_controller optimus_RR_inner_wheel_connector_controller optimus_RL_inner_wheel_controller optimus_RL_inner_wheel_connector_controller UR10_front_shoulder_pan_joint_controller UR10_front_shoulder_lift_joint_controller UR10_front_elbow_joint_controller UR10_front_wrist_1_joint_controller UR10_front_wrist_2_joint_controller UR10_front_wrist_3_joint_controller UR10_rear_shoulder_pan_joint_controller UR10_rear_shoulder_lift_joint_controller UR10_rear_elbow_joint_controller UR10_rear_wrist_1_joint_controller UR10_rear_wrist_2_joint_controller UR10_rear_wrist_3_joint_controller" />
 
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen"/>
 
@@ -31,7 +33,7 @@
     type="rostopic"
     args="pub /calibrated std_msgs/Bool true" />
 
-  <arg name="config" default="visualize" />
-  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find optimus)/rviz/$(arg config).rviz"/>
+  <!-- <arg name="config" default="visualize" /> -->
+  <!-- <node name="rviz" pkg="rviz" type="rviz" args="-d $(find optimus)/rviz/$(arg config).rviz"/> -->
 
 </launch>

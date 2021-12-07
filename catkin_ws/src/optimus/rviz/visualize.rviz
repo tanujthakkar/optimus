@@ -101,6 +101,50 @@ Visualization Manager:
           Value: true
         optimus_rear_down:
           Value: true
+        ur10e_front_base:
+          Value: true
+        ur10e_front_base_link:
+          Value: true
+        ur10e_front_ee_link:
+          Value: true
+        ur10e_front_forearm_link:
+          Value: true
+        ur10e_front_rg2_body_link:
+          Value: true
+        ur10e_front_shoulder_link:
+          Value: true
+        ur10e_front_tool0:
+          Value: true
+        ur10e_front_upper_arm_link:
+          Value: true
+        ur10e_front_wrist_1_link:
+          Value: true
+        ur10e_front_wrist_2_link:
+          Value: true
+        ur10e_front_wrist_3_link:
+          Value: true
+        ur10e_rear_base:
+          Value: true
+        ur10e_rear_base_link:
+          Value: true
+        ur10e_rear_ee_link:
+          Value: true
+        ur10e_rear_forearm_link:
+          Value: true
+        ur10e_rear_rg2_body_link:
+          Value: true
+        ur10e_rear_shoulder_link:
+          Value: true
+        ur10e_rear_tool0:
+          Value: true
+        ur10e_rear_upper_arm_link:
+          Value: true
+        ur10e_rear_wrist_1_link:
+          Value: true
+        ur10e_rear_wrist_2_link:
+          Value: true
+        ur10e_rear_wrist_3_link:
+          Value: true
       Marker Scale: 1
       Name: TF
       Show Arrows: true
@@ -126,6 +170,20 @@ Visualization Manager:
                 {}
               R_docker_shaft_link:
                 {}
+            ur10e_front_base_link:
+              ur10e_front_base:
+                {}
+              ur10e_front_shoulder_link:
+                ur10e_front_upper_arm_link:
+                  ur10e_front_forearm_link:
+                    ur10e_front_wrist_1_link:
+                      ur10e_front_wrist_2_link:
+                        ur10e_front_wrist_3_link:
+                          ur10e_front_ee_link:
+                            {}
+                          ur10e_front_tool0:
+                            ur10e_front_rg2_body_link:
+                              {}
           optimus_rear_down:
             RL_inner_wheel_connector_link:
               RL_inner_wheel_link:
@@ -139,6 +197,20 @@ Visualization Manager:
             RR_outer_wheel_connector_link:
               RR_outer_wheel_link:
                 {}
+            ur10e_rear_base_link:
+              ur10e_rear_base:
+                {}
+              ur10e_rear_shoulder_link:
+                ur10e_rear_upper_arm_link:
+                  ur10e_rear_forearm_link:
+                    ur10e_rear_wrist_1_link:
+                      ur10e_rear_wrist_2_link:
+                        ur10e_rear_wrist_3_link:
+                          ur10e_rear_ee_link:
+                            {}
+                          ur10e_rear_tool0:
+                            ur10e_rear_rg2_body_link:
+                              {}
       Update Interval: 0
       Value: true
     - Alpha: 1
@@ -256,6 +328,112 @@ Visualization Manager:
           Show Trail: false
           Value: true
         optimus_rear_down:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        ur10e_front_base:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        ur10e_front_base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        ur10e_front_ee_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        ur10e_front_forearm_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        ur10e_front_rg2_body_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        ur10e_front_shoulder_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        ur10e_front_tool0:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        ur10e_front_upper_arm_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        ur10e_front_wrist_1_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        ur10e_front_wrist_2_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        ur10e_front_wrist_3_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        ur10e_rear_base:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        ur10e_rear_base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        ur10e_rear_ee_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        ur10e_rear_forearm_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        ur10e_rear_rg2_body_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        ur10e_rear_shoulder_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        ur10e_rear_tool0:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        ur10e_rear_upper_arm_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        ur10e_rear_wrist_1_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        ur10e_rear_wrist_2_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        ur10e_rear_wrist_3_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
