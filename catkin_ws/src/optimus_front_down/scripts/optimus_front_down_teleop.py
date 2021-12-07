@@ -6,8 +6,6 @@ from std_msgs.msg import Float64
 import sys, select, termios, tty
 
 msg = """
-Control Your Toy!
----------------------------
 Moving around:
    u    i    o
    j    k    l
@@ -62,12 +60,14 @@ if __name__=="__main__":
     
     rospy.init_node('optimus_control')
 
-    pub_right = rospy.Publisher('/optimus_FR_outer_wheel_connector_controller/command', Float64, queue_size=10) # Publisher for Front-Right connector
-    pub_left = rospy.Publisher('/optimus_FL_outer_wheel_connector_controller/command', Float64, queue_size=10) # Publisher for Front-Left connector
-    pub_move_FR = rospy.Publisher('/optimus_FR_outer_wheel_controller/command', Float64, queue_size=10) # Publisher for Front-Right wheel
-    pub_move_FL = rospy.Publisher('/optimus_FL_outer_wheel_controller/command', Float64, queue_size=10) # Publisher for Front-Left wheel
-    pub_move_RR = rospy.Publisher('/optimus_RR_outer_wheel_controller/command', Float64, queue_size=10) # Publisher for Rear-Right wheel
-    pub_move_RL = rospy.Publisher('/optimus_RL_outer_wheel_controller/command', Float64, queue_size=10) # Publisher for Rear-Left wheel
+    # pub_right = rospy.Publisher('/optimus_FR_outer_wheel_connector_controller/command', Float64, queue_size=10) # Publisher for Front-Right connector
+    # pub_left = rospy.Publisher('/optimus_FL_outer_wheel_connector_controller/command', Float64, queue_size=10) # Publisher for Front-Left connector
+    # pub_right = rospy.Publisher('/optimus_FR_inner_wheel_connector_controller/command', Float64, queue_size=10) # Publisher for Front-Right connector
+    # pub_left = rospy.Publisher('/optimus_FL_inner_wheel_connector_controller/command', Float64, queue_size=10) # Publisher for Front-Left connector
+    pub_move_FOR = rospy.Publisher('/optimus_front_namespace/optimus_FR_outer_wheel_controller/command', Float64, queue_size=10) # Publisher for Front-Right wheel
+    pub_move_FOL = rospy.Publisher('/optimus_front_namespace/optimus_FL_outer_wheel_controller/command', Float64, queue_size=10) # Publisher for Front-Left wheel
+    pub_move_FIR = rospy.Publisher('/optimus_front_namespace/optimus_FR_inner_wheel_controller/command', Float64, queue_size=10) # Publisher for Rear-Right wheel
+    pub_move_FIL = rospy.Publisher('/optimus_front_namespace/optimus_FL_inner_wheel_controller/command', Float64, queue_size=10) # Publisher for Rear-Left wheel
 
     x = 0
     th = 0
@@ -119,30 +119,51 @@ if __name__=="__main__":
             else:
                 control_speed = target_speed
 
-            if target_turn > control_turn:
-                control_turn = min( target_turn, control_turn + 0.1 )
-            elif target_turn < control_turn:
-                control_turn = max( target_turn, control_turn - 0.1 )
-            else:
-                control_turn = target_turn
+            if key == 'j' or key  == 'l':
+                if target_turn > control_turn:
+                    control_turn = min( target_turn, control_turn + 0.1 )
+                elif target_turn < control_turn:
+                    control_turn = max( target_turn, control_turn - 0.1 )
+                else:
+                    control_turn = target_turn
 
-            pub_right.publish(control_turn) # publish the turn command.
-            pub_left.publish(control_turn) # publish the turn command.
-            pub_move_FR.publish(control_speed)
-            pub_move_FL.publish(control_speed)
-            pub_move_RR.publish(control_speed)
-            pub_move_RL.publish(control_speed)
+                speed_right = control_turn
+                speed_left = -control_turn
+
+                gain = 1
+
+                if key == 'j':
+                    pub_move_FOR.publish(speed_right)
+                    pub_move_FIR.publish(speed_right)
+
+                    pub_move_FOL.publish(gain*speed_left)
+                    pub_move_FIL.publish(gain*speed_left)
+
+                if key == 'l':
+                    pub_move_FOL.publish(speed_left)
+                    pub_move_FIL.publish(speed_left)
+
+                    pub_move_FOR.publish(gain*speed_right)
+                    pub_move_FIR.publish(gain*speed_right)
+            else:
+                speed_right = control_speed
+                speed_left = control_speed
+                pub_move_FOR.publish(speed_right)
+                pub_move_FIR.publish(speed_right)
+
+                pub_move_FOL.publish(speed_left)
+                pub_move_FIL.publish(speed_left)
 
     except:
-        print e
+        pass
+        # print e
 
     finally:
-        pub_right.publish(control_turn)
-        pub_left.publish(control_turn)
-        pub_move_FR.publish(control_speed)
-        pub_move_FL.publish(control_speed)
-        pub_move_RR.publish(control_speed)
-        pub_move_RL.publish(control_speed)
+        pub_move_FOR.publish(speed_right)
+        pub_move_FIR.publish(speed_right)
+
+        pub_move_FOL.publish(speed_left)
+        pub_move_FIL.publish(speed_left)
         # twist = Twist()
         # twist.linear.x = 0; twist.linear.y = 0; twist.linear.z = 0
         # twist.angular.x = 0; twist.angular.y = 0; twist.angular.z = 0

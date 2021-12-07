@@ -102,6 +102,9 @@
       upper="1.57"
       effort="100"
       velocity="100" />
+      <dynamics
+      friction="1.0"
+      damping="1.0" />
   </joint>
 
   <transmission name="FR_outer_wheel_connector_trans">
@@ -177,7 +180,7 @@
       <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
     </joint>
     <actuator name="FR_outer_wheel_actuator">
-      <mechanicalReduction>50</mechanicalReduction>
+      <mechanicalReduction>1</mechanicalReduction>
       <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
     </actuator>
   </transmission>
@@ -240,6 +243,9 @@
       upper="1.57"
       effort="100"
       velocity="100" />
+      <dynamics
+      friction="1.0"
+      damping="1.0" />
   </joint>
 
   <transmission name="FL_outer_wheel_connector_trans">
@@ -314,7 +320,7 @@
       <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
     </joint>
     <actuator name="FL_outer_wheel_actuator">
-      <mechanicalReduction>50</mechanicalReduction>
+      <mechanicalReduction>1</mechanicalReduction>
       <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
     </actuator>
   </transmission>
@@ -377,6 +383,9 @@
       upper="1.57"
       effort="100"
       velocity="100" />
+      <dynamics
+      friction="1.0"
+      damping="1.0" />
   </joint>
 
   <transmission name="FR_inner_wheel_connector_trans">
@@ -451,7 +460,7 @@
       <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
     </joint>
     <actuator name="FR_inner_wheel_actuator">
-      <mechanicalReduction>50</mechanicalReduction>
+      <mechanicalReduction>1</mechanicalReduction>
       <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
     </actuator>
   </transmission>
@@ -514,6 +523,9 @@
       upper="1.57"
       effort="100"
       velocity="100" />
+      <dynamics
+      friction="1.0"
+      damping="1.0" />
   </joint>
 
   <transmission name="FL_inner_wheel_connector_trans">
@@ -588,7 +600,7 @@
       <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
     </joint>
     <actuator name="FL_inner_wheel_actuator">
-      <mechanicalReduction>50</mechanicalReduction>
+      <mechanicalReduction>1</mechanicalReduction>
       <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
     </actuator>
   </transmission>
@@ -792,9 +804,11 @@
 
   <gazebo>
     <plugin filename="libgazebo_ros_control.so" name="gazebo_ros_control">
+      <!-- <robotNamespace>/</robotNamespace> -->
       <robotNamespace>/optimus_front_namespace/</robotNamespace>
       <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
       <legacyModeNS>true</legacyModeNS>
     </plugin>
   </gazebo>
+
 </robot>

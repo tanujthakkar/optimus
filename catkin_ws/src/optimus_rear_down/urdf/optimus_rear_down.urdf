@@ -105,8 +105,8 @@
       effort="100"
       velocity="100" />
       <dynamics
-      friction="0.1"
-      damping="0.1" />
+      friction="1.0"
+      damping="1.0" />
   </joint>
 
   <transmission name="RR_outer_wheel_connector_trans">
@@ -245,6 +245,9 @@
       upper="1.57"
       effort="100"
       velocity="100" />
+      <dynamics
+      friction="1.0"
+      damping="1.0" />
   </joint>
 
   <transmission name="RL_outer_wheel_connector_trans">
@@ -383,6 +386,9 @@
       upper="1.57"
       effort="100"
       velocity="100" />
+      <dynamics
+      friction="1.0"
+      damping="1.0" />
   </joint>
 
   <transmission name="RR_inner_wheel_connector_trans">
@@ -520,6 +526,9 @@
       upper="1.57"
       effort="100"
       velocity="100" />
+      <dynamics
+      friction="1.0"
+      damping="1.0" />
   </joint>
 
   <transmission name="RL_inner_wheel_connector_trans">
