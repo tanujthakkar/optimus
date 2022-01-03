@@ -80,7 +80,7 @@ def vels(speed,turn):
 if __name__=="__main__":
     settings = termios.tcgetattr(sys.stdin)
     
-    rospy.init_node('optimus_control')
+    rospy.init_node('optimus_front_control')
 
     # pub_right = rospy.Publisher('/optimus_FR_outer_wheel_connector_controller/command', Float64, queue_size=10) # Publisher for Front-Right connector
     # pub_left = rospy.Publisher('/optimus_FL_outer_wheel_connector_controller/command', Float64, queue_size=10) # Publisher for Front-Left connector

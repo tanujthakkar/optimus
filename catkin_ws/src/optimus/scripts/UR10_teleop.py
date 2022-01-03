@@ -60,7 +60,7 @@ rear_W3P = 0.0
 if __name__=="__main__":
     settings = termios.tcgetattr(sys.stdin)
     
-    rospy.init_node('optimus_control')
+    rospy.init_node('UR10_control')
 
     # UR10 Front Control
     pub_front_shouler_pan = rospy.Publisher('UR10_front_shoulder_pan_joint_controller/command', Float64, queue_size=10)

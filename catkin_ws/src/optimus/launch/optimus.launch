@@ -1,7 +1,7 @@
 <launch> 
 
   <include file= "$(find gazebo_ros)/launch/empty_world.launch"> 
-    <arg name="world_name" value="$(find optimus)/worlds/apollo.world"/> 
+    <!-- <arg name="world_name" value="$(find optimus)/worlds/apollo.world"/>  -->
   </include>
 
   <param name="robot_description" command="$(find xacro)/xacro --inorder $(find optimus)/urdf/optimus.urdf.xacro" />
