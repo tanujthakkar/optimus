@@ -2,9 +2,9 @@
 
 The following repository is part of a project submitted as coursework for the ENPM662 - Introduction to Robot Modelling course at University of Maryland - College Park. The motivation behind the project was to design a all terrain ground robot inspired from the Axel Rover by NASA/JPL and the Clearpath Robotics Warthog. We developed a differential drive robot that can dynamically adjust its ride height and adapt to the local terrain. Additionally, the robot also features two UR10e arms for manipulation capabilities.
 
-https://user-images.githubusercontent.com/32800090/147895113-ce112a8e-4819-4a96-af02-935a679fba54.mp4
+https://user-images.githubusercontent.com/32800090/147989580-e23f5c21-e6cd-435b-9964-3e5e28a08ea6.mp4
 
-https://user-images.githubusercontent.com/32800090/147895117-89f34091-1597-4975-8fe1-33afdb9fc1b6.mp4
+https://user-images.githubusercontent.com/32800090/147989653-a8ede1c5-c21f-44f5-b663-39c62845ea80.mp4
 
 
 <h3>Setup & Usage<h3>
